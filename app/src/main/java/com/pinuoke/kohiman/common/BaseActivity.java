@@ -133,9 +133,9 @@ public class BaseActivity extends AppCompatActivity {
         return super.dispatchTouchEvent(ev);
     }
 
-    //    public void initTransparent() {
-//        StatusBarUtil.setColor(this.getWindow(), 0x00000000);
-//    }
+        public void initTransparent1() {
+        StatusBarUtil.setColor(this.getWindow(), 0x00000000);
+    }
     public void initTransparent() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
