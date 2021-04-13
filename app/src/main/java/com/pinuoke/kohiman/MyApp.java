@@ -1,4 +1,4 @@
-package com.example.kohiman;
+package com.pinuoke.kohiman;
 
 import android.app.Application;
 

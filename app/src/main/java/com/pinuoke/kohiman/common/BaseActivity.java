@@ -1,4 +1,4 @@
-package com.example.kohiman.common;
+package com.pinuoke.kohiman.common;
 
 import android.content.Context;
 import android.content.IntentFilter;
@@ -9,14 +9,16 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.kohiman.R;
-import com.example.kohiman.receiver.NetUtils;
-import com.example.kohiman.receiver.NetworkChangeEvent;
-import com.example.kohiman.receiver.NetworkConnectChangedReceiver;
+import com.pinuoke.kohiman.R;
+import com.pinuoke.kohiman.receiver.NetUtils;
+import com.pinuoke.kohiman.receiver.NetworkChangeEvent;
+import com.pinuoke.kohiman.receiver.NetworkConnectChangedReceiver;
+import com.pinuoke.kohiman.utils.StatusBarUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -131,6 +133,19 @@ public class BaseActivity extends AppCompatActivity {
         return super.dispatchTouchEvent(ev);
     }
 
+    //    public void initTransparent() {
+//        StatusBarUtil.setColor(this.getWindow(), 0x00000000);
+//    }
+    public void initTransparent() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.getDecorView().setSystemUiVisibility(android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.transparent));
+        }
+    }
 
     public boolean isFastDoubleClick() {
         long time = System.currentTimeMillis();

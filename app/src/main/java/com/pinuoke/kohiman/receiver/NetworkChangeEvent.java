@@ -1,4 +1,4 @@
-package com.example.kohiman.receiver;
+package com.pinuoke.kohiman.receiver;
 
 public class NetworkChangeEvent {
     public boolean isConnected; //是否存在网络

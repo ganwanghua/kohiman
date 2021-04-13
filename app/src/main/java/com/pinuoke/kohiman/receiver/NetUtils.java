@@ -1,4 +1,4 @@
-package com.example.kohiman.receiver;
+package com.pinuoke.kohiman.receiver;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

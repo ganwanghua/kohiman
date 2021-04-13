@@ -1,4 +1,4 @@
-package com.example.kohiman.receiver;
+package com.pinuoke.kohiman.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
