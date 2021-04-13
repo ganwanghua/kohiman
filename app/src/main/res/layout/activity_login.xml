@@ -70,6 +70,7 @@
             android:background="@color/white"
             android:hint="请输入账号密码"
             android:padding="10dp"
+            android:inputType="textPassword"
             android:textColor="@color/black"
             android:textColorHint="#CCCCCC"
             android:textSize="17sp" />
