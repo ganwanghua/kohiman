@@ -74,7 +74,7 @@ public class MainActivity extends BaseActivity {
                 } else if (position == 2) {
                     initTransparent();
                 } else if (position == 3) {
-                    initTransparent();
+                    initWhite();
                 } else {
 
                 }
