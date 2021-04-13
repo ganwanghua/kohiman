@@ -16,4 +16,8 @@ public interface RemotDataSource {
     }
 
     void login(Map<String, String> queryMap, getCallback callback);
+
+    void myCustomerList(Map<String, String> queryMap, getCallback callback);
+
+    void seasList(Map<String, String> queryMap, getCallback callback);
 }

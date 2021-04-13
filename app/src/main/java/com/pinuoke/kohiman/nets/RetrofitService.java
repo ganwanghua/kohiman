@@ -1,5 +1,7 @@
 package com.pinuoke.kohiman.nets;
 
+import com.pinuoke.kohiman.model.MyCustomerListModel;
+import com.pinuoke.kohiman.model.SeasListModel;
 import com.pinuoke.kohiman.model.StatusModel;
 
 import java.util.Map;
@@ -17,4 +19,12 @@ public interface RetrofitService {
     // 登录
     @POST("index.php")
     Observable<StatusModel> login(@QueryMap Map<String, String> queryMap);
+
+    // 我的客户列表
+    @POST("index.php")
+    Observable<MyCustomerListModel> myCustomerList(@QueryMap Map<String, String> queryMap);
+
+    // 公海客户
+    @POST("index.php")
+    Observable<SeasListModel> seasList(@QueryMap Map<String, String> queryMap);
 }

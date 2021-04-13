@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
         android:text="客户管理"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textColor="#111111"
+        android:textSize="16sp" />
+
+    <com.pinuoke.kohiman.weight.SwitchView
+        android:id="@+id/switchView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        app:bgColor="#F7F7F7"
+        app:leftColor="@color/white"
+        app:rightColor="@color/white"
+        app:setChecked="false"
+        app:textLeft="我的客户"
+        app:textLeftClickColor="#00A9A9"
+        app:textLeftColor="#808080"
+        app:textRight="公海客户"
+        app:textRightClickColor="#00A9A9"
+        app:textRightColor="#808080"
+        app:time="500" />
+
+    <FrameLayout
+        android:id="@+id/fl_banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

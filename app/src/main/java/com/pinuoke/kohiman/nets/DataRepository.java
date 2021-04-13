@@ -31,4 +31,14 @@ public class DataRepository implements RemotDataSource {
     public void login(Map<String, String> queryMap, getCallback callback) {
         mRemoteDataSource.login(queryMap, callback);
     }
+
+    @Override
+    public void myCustomerList(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.myCustomerList(queryMap, callback);
+    }
+
+    @Override
+    public void seasList(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.seasList(queryMap, callback);
+    }
 }

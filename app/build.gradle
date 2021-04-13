@@ -51,6 +51,12 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.github.Vincent7Wong:EasyNavigation:2.0.5'
+    //顶部导航栏
+    implementation 'com.androidkun:XTabLayout:1.1.5'
+    //刷新控件
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14'
 
-
+    implementation 'com.github.dmytrodanylyk.shadow-layout:library:1.0.3'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 }
