@@ -26,7 +26,6 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.easy_bars)
     EasyNavigationBar easyBars;
     private List<Fragment> fragments = new ArrayList<>();
-    private FragmentTabAdapter tabAdapter;
 
     private String[] strings = {"客户管理", "项目管理", "工作台", "个人中心"};
     private int[] selectList = {R.mipmap.customer_management_1, R.mipmap.project_management_1, R.mipmap.workbench_1,  R.mipmap.mine_1};
@@ -35,6 +34,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        initWhite();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
@@ -68,17 +68,14 @@ public class MainActivity extends BaseActivity {
             public boolean onTabSelectEvent(View view, int position) {
 //                easyBars.selectTab(position,false);
                 if (position == 0) {
-                    initTransparent();
+                    initWhite();
                 } else if (position == 1) {
-                    initTransparent();
+                    initWhite();
                 } else if (position == 2) {
-                    initTransparent();
+                    initWhite();
                 } else if (position == 3) {
                     initWhite();
-                } else {
-
                 }
-
                 return false;
             }
 

@@ -7,6 +7,6 @@ public class ProjectFragment extends BaseFragment {
 
     @Override
     protected int LayoutId() {
-        return R.layout.fragment_customer;
+        return R.layout.fragment_project;
     }
 }

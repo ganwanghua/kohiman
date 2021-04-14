@@ -2,6 +2,7 @@ package com.pinuoke.kohiman.nets;
 
 import android.content.Context;
 
+import com.pinuoke.kohiman.model.BatchToSeasModel;
 import com.pinuoke.kohiman.model.MyCustomerListModel;
 import com.pinuoke.kohiman.model.SeasListModel;
 import com.pinuoke.kohiman.model.StatusModel;
@@ -90,6 +91,50 @@ public class RemotDataSourceImpl implements RemotDataSource {
 
                     @Override
                     public void onNext(SeasListModel s) { // 请求成功
+                        callback.onSuccess(s);
+                    }
+                });
+    }
+
+    @Override
+    public void batchToSeas(Map<String, String> queryMap, final getCallback callback) {
+        Observable<BatchToSeasModel> observable = RetrofitHelper.getInstance(mContext).getServer().batchToSeas(queryMap);
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<BatchToSeasModel>() {
+                    @Override
+                    public void onCompleted() { // 完成请求后
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) { // 异常处理
+                        callback.onFailure(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(BatchToSeasModel s) { // 请求成功
+                        callback.onSuccess(s);
+                    }
+                });
+    }
+
+    @Override
+    public void batchGetClue(Map<String, String> queryMap, final getCallback callback) {
+        Observable<BatchToSeasModel> observable = RetrofitHelper.getInstance(mContext).getServer().batchGetClue(queryMap);
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<BatchToSeasModel>() {
+                    @Override
+                    public void onCompleted() { // 完成请求后
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) { // 异常处理
+                        callback.onFailure(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(BatchToSeasModel s) { // 请求成功
                         callback.onSuccess(s);
                     }
                 });

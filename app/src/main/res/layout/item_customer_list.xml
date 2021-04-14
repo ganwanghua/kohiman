@@ -25,6 +25,7 @@
             android:padding="15dp">
 
             <RelativeLayout
+                android:id="@+id/rl_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -121,6 +122,7 @@
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
+                    android:id="@+id/ll_delete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"

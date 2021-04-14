@@ -58,9 +58,7 @@ dependencies {
     implementation 'com.androidkun:XTabLayout:1.1.5'
     //刷新控件
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
-    
     implementation 'com.timmy.tdialog:tdialog:2.1.1'
-
     implementation 'com.github.dmytrodanylyk.shadow-layout:library:1.0.3'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 }

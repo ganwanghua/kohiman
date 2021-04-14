@@ -1,5 +1,6 @@
 package com.pinuoke.kohiman.nets;
 
+import com.pinuoke.kohiman.model.BatchToSeasModel;
 import com.pinuoke.kohiman.model.MyCustomerListModel;
 import com.pinuoke.kohiman.model.SeasListModel;
 import com.pinuoke.kohiman.model.StatusModel;
@@ -27,4 +28,12 @@ public interface RetrofitService {
     // 公海客户
     @POST("index.php")
     Observable<SeasListModel> seasList(@QueryMap Map<String, String> queryMap);
+
+    // 公海客户
+    @POST("index.php")
+    Observable<BatchToSeasModel> batchToSeas(@QueryMap Map<String, String> queryMap);
+
+    // 公海客户领取
+    @POST("index.php")
+    Observable<BatchToSeasModel> batchGetClue(@QueryMap Map<String, String> queryMap);
 }

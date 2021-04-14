@@ -201,7 +201,7 @@ public class SeasListModel {
                 private Object user;
                 private LastUserBean last_user;
                 private RegionBean region;
-                private int noFollowDays;
+                private String noFollowDays;
                 private List<TagListBean> tagList;
 
                 public int getClue_id() {
@@ -556,11 +556,11 @@ public class SeasListModel {
                     this.region = region;
                 }
 
-                public int getNoFollowDays() {
+                public String getNoFollowDays() {
                     return noFollowDays;
                 }
 
-                public void setNoFollowDays(int noFollowDays) {
+                public void setNoFollowDays(String noFollowDays) {
                     this.noFollowDays = noFollowDays;
                 }
 

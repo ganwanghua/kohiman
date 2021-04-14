@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -56,16 +57,28 @@ public class CustomerListAdapter extends BaseAdapter<MyCustomerListModel.DataBea
             holder.tvTag.setVisibility(View.GONE);
         }
 
-        if(i == 0){
+        if (i == 0) {
             holder.tvEdit.setText("编辑");
             holder.tvFollowUp.setVisibility(View.VISIBLE);
-        }else if(i == 1){
+        } else if (i == 1) {
             holder.tvEdit.setText("创建项目");
             holder.tvFollowUp.setVisibility(View.VISIBLE);
-        }else if(i == 2){
+        } else if (i == 2) {
             holder.tvEdit.setText("编辑");
             holder.tvFollowUp.setVisibility(View.GONE);
         }
+
+        holder.llDelete.setOnClickListener(v -> {
+            if (mOnItemClickListener != null) {
+                mOnItemClickListener.onItemViewClick(v, position);
+            }
+        });
+
+        holder.rlUser.setOnClickListener(v -> {
+            if (mOnItemClickListener != null) {
+                mOnItemClickListener.onItemViewClick(v, position);
+            }
+        });
     }
 
     @Override
@@ -74,6 +87,10 @@ public class CustomerListAdapter extends BaseAdapter<MyCustomerListModel.DataBea
     }
 
     static class VH extends RecyclerView.ViewHolder {
+        @BindView(R.id.rl_user)
+        RelativeLayout rlUser;
+        @BindView(R.id.ll_delete)
+        LinearLayout llDelete;
         @BindView(R.id.tv_name)
         TextView tvName;
         @BindView(R.id.tv_tag)

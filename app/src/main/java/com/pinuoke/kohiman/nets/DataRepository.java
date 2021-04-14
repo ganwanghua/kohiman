@@ -41,4 +41,14 @@ public class DataRepository implements RemotDataSource {
     public void seasList(Map<String, String> queryMap, getCallback callback) {
         mRemoteDataSource.seasList(queryMap, callback);
     }
+
+    @Override
+    public void batchToSeas(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.batchToSeas(queryMap, callback);
+    }
+
+    @Override
+    public void batchGetClue(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.batchGetClue(queryMap, callback);
+    }
 }

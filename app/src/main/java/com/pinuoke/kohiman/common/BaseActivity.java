@@ -133,8 +133,8 @@ public class BaseActivity extends AppCompatActivity {
         return super.dispatchTouchEvent(ev);
     }
 
-    public void initWhite(){
-        StatusBarUtil.setColor(this.getWindow(), getResources().getColor(R.color.white));
+    public void initWhite() {
+        StatusBarUtil.setColor(this.getWindow(), 0xffffffff);
     }
 
     public void initTransparent() {

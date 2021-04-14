@@ -52,6 +52,12 @@ public class SeasListAdapter extends BaseAdapter<SeasListModel.DataBeanX.ListBea
         } else {
             holder.tvTag.setVisibility(View.GONE);
         }
+
+        holder.tvGet.setOnClickListener(v -> {
+            if (mOnItemClickListener != null) {
+                mOnItemClickListener.onItemViewClick(v, position);
+            }
+        });
     }
 
     @Override

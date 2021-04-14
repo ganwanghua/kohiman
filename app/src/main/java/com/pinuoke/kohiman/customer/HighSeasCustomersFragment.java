@@ -1,14 +1,19 @@
 package com.pinuoke.kohiman.customer;
 
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pedaily.yc.ycdialoglib.dialog.loading.ViewLoading;
+import com.pedaily.yc.ycdialoglib.toast.ToastUtils;
 import com.pinuoke.kohiman.R;
 import com.pinuoke.kohiman.adapter.CustomerListAdapter;
 import com.pinuoke.kohiman.adapter.SeasListAdapter;
+import com.pinuoke.kohiman.common.BaseAdapter;
 import com.pinuoke.kohiman.common.BaseFragment;
+import com.pinuoke.kohiman.model.BatchToSeasModel;
 import com.pinuoke.kohiman.model.MyCustomerListModel;
 import com.pinuoke.kohiman.model.SeasListModel;
 import com.pinuoke.kohiman.nets.DataRepository;
@@ -48,8 +53,36 @@ public class HighSeasCustomersFragment extends BaseFragment implements OnRefresh
         seasListAdapter = new SeasListAdapter(getActivity());
         recycleView.setAdapter(seasListAdapter);
         refresh.setOnRefreshLoadMoreListener(this);
-
+        seasListAdapter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
+            @Override
+            public void onItemViewClick(View view, int position) {
+                batchGetClue(dataBeanList.get(position).getClue_id());
+            }
+        });
         seasList(page);
+    }
+
+    private void batchGetClue(int clue_id) {
+        Map<String, String> map = new HashMap<>();
+        map.put("s", "/sales/client.index/batchGetClue");
+        map.put("clue_ids[]", clue_id + "");
+        map.put("token", FastData.getToken());
+        dataRepository.batchGetClue(map, new RemotDataSource.getCallback() {
+            @Override
+            public void onFailure(String info) {
+            }
+
+            @Override
+            public void onSuccess(Object data) {
+                BatchToSeasModel batchToSeasModel = (BatchToSeasModel) data;
+                if (batchToSeasModel.getCode() == 1) {
+                    ToastUtils.showToast("领取成功");
+                    page = 1;
+                    dataBeanList.clear();
+                    seasList(page);
+                }
+            }
+        });
     }
 
     private void seasList(int page) {
