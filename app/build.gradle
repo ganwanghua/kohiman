@@ -61,4 +61,7 @@ dependencies {
     implementation 'com.timmy.tdialog:tdialog:2.1.1'
     implementation 'com.github.dmytrodanylyk.shadow-layout:library:1.0.3'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    implementation 'com.github.arcadefire:nice-spinner:1.4.5'
+
 }

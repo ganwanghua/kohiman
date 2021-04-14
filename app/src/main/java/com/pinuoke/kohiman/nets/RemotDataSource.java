@@ -24,4 +24,6 @@ public interface RemotDataSource {
     void batchToSeas(Map<String, String> queryMap, getCallback callback);
 
     void batchGetClue(Map<String, String> queryMap, getCallback callback);
+
+    void myProjectList(Map<String, String> queryMap, getCallback callback);
 }

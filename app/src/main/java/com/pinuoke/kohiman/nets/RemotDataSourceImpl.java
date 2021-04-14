@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.pinuoke.kohiman.model.BatchToSeasModel;
 import com.pinuoke.kohiman.model.MyCustomerListModel;
+import com.pinuoke.kohiman.model.MyProjectListModel;
 import com.pinuoke.kohiman.model.SeasListModel;
 import com.pinuoke.kohiman.model.StatusModel;
 import java.util.Map;
@@ -135,6 +136,28 @@ public class RemotDataSourceImpl implements RemotDataSource {
 
                     @Override
                     public void onNext(BatchToSeasModel s) { // 请求成功
+                        callback.onSuccess(s);
+                    }
+                });
+    }
+
+    @Override
+    public void myProjectList(Map<String, String> queryMap, getCallback callback) {
+        Observable<MyProjectListModel> observable = RetrofitHelper.getInstance(mContext).getServer().myProjectList(queryMap);
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<MyProjectListModel>() {
+                    @Override
+                    public void onCompleted() { // 完成请求后
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) { // 异常处理
+                        callback.onFailure(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(MyProjectListModel s) { // 请求成功
                         callback.onSuccess(s);
                     }
                 });

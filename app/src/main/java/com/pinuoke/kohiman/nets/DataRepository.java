@@ -51,4 +51,9 @@ public class DataRepository implements RemotDataSource {
     public void batchGetClue(Map<String, String> queryMap, getCallback callback) {
         mRemoteDataSource.batchGetClue(queryMap, callback);
     }
+
+    @Override
+    public void myProjectList(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.myProjectList(queryMap, callback);
+    }
 }

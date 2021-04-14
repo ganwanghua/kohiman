@@ -5,6 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
 
     <color name="red">#FF0000</color>
+    <color name="text_red">#F37B6F</color>
     <color name="black">#000000</color>
     <color name="black_2">#222222</color>
     <color name="black_1">#111111</color>
@@ -13,6 +14,7 @@
     <color name="green">#00A9A9</color>
     <color name="white1">#F7F7F7</color>
     <color name="line_color">#EEEEEE</color>
+    <color name="hint_color">#B3B3B3</color>
 
     <color name="liji_c_blue">#26A5FF</color>
 
