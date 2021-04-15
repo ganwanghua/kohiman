@@ -55,7 +55,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp">
 
-            <com.pinuoke.kohiman.widget.RoundImageView
+            <com.pinuoke.kohiman.weight.RoundImageView
                 android:id="@+id/iv_avatar"
                 android:layout_width="60dp"
                 android:layout_height="60dp"

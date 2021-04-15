@@ -1,4 +1,4 @@
-package com.pinuoke.kohiman.widget;
+package com.pinuoke.kohiman.weight;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

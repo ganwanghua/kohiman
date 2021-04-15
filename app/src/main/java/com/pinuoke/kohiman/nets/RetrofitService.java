@@ -55,4 +55,8 @@ public interface RetrofitService {
     // 配置项
     @POST("index.php")
     Observable<ConfigModel> config(@QueryMap Map<String, String> queryMap);
+
+    // 跟进客户
+    @POST("index.php")
+    Observable<BatchToSeasModel> follow(@QueryMap Map<String, String> queryMap);
 }

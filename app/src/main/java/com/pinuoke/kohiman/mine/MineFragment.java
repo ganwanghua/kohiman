@@ -15,7 +15,7 @@ import com.pinuoke.kohiman.nets.DataRepository;
 import com.pinuoke.kohiman.nets.Injection;
 import com.pinuoke.kohiman.utils.DataCleanManager;
 import com.pinuoke.kohiman.utils.FastData;
-import com.pinuoke.kohiman.widget.RoundImageView;
+import com.pinuoke.kohiman.weight.RoundImageView;
 import com.timmy.tdialog.TDialog;
 import com.timmy.tdialog.base.BindViewHolder;
 import com.timmy.tdialog.listener.OnBindViewListener;

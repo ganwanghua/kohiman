@@ -230,4 +230,26 @@ public class RemotDataSourceImpl implements RemotDataSource {
                     }
                 });
     }
+
+    @Override
+    public void follow(Map<String, String> queryMap, getCallback callback) {
+        Observable<BatchToSeasModel> observable = RetrofitHelper.getInstance(mContext).getServer().follow(queryMap);
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<BatchToSeasModel>() {
+                    @Override
+                    public void onCompleted() { // 完成请求后
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) { // 异常处理
+                        callback.onFailure(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(BatchToSeasModel s) { // 请求成功
+                        callback.onSuccess(s);
+                    }
+                });
+    }
 }

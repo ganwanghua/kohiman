@@ -86,6 +86,12 @@ public class CustomerListAdapter extends BaseAdapter<MyCustomerListModel.DataBea
                 mOnItemClickListener.onItemViewClick(v, position);
             }
         });
+
+        holder.tvFollowUp.setOnClickListener(v -> {
+            if (mOnItemClickListener != null) {
+                mOnItemClickListener.onItemViewClick(v, position);
+            }
+        });
     }
 
     @Override

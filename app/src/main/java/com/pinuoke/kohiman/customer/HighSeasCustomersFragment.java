@@ -86,7 +86,6 @@ public class HighSeasCustomersFragment extends BaseFragment implements OnRefresh
     }
 
     private void seasList(int page) {
-        ViewLoading.show(getActivity());
         Map<String, String> map = new HashMap<>();
         map.put("s", "/sales/client.index/seas");
         map.put("page", page + "");
@@ -96,13 +95,11 @@ public class HighSeasCustomersFragment extends BaseFragment implements OnRefresh
             public void onFailure(String info) {
                 refresh.finishRefresh();
                 refresh.finishLoadMore();
-                ViewLoading.dismiss(mContext);
             }
 
             @Override
             public void onSuccess(Object data) {
                 refresh.finishRefresh();
-                ViewLoading.dismiss(mContext);
                 SeasListModel seasListModel = (SeasListModel) data;
                 if (seasListModel.getCode() == 1) {
                     if (seasListModel.getData().getList().getCurrent_page() == seasListModel.getData().getList().getLast_page()) {

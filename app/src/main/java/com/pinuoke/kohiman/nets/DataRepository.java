@@ -71,4 +71,9 @@ public class DataRepository implements RemotDataSource {
     public void config(Map<String, String> queryMap, getCallback callback) {
         mRemoteDataSource.config(queryMap, callback);
     }
+
+    @Override
+    public void follow(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.follow(queryMap, callback);
+    }
 }

@@ -88,6 +88,9 @@ public class CustomerListFragment extends BaseFragment implements OnRefreshLoadM
                         intent.putExtra("clue_id", dataBeanList.get(position).getClue_id() + "");
                         startActivity(intent);
                         break;
+                    case R.id.tv_follow_up:
+
+                        break;
                 }
             }
         });
@@ -165,7 +168,6 @@ public class CustomerListFragment extends BaseFragment implements OnRefreshLoadM
     }
 
     private void myCustomerList(int page, String s) {
-        ViewLoading.show(getActivity());
         Map<String, String> map = new HashMap<>();
         map.put("s", "/sales/client.index/my");
         map.put("is_followed", s);
@@ -176,13 +178,11 @@ public class CustomerListFragment extends BaseFragment implements OnRefreshLoadM
             public void onFailure(String info) {
                 refresh.finishRefresh();
                 refresh.finishLoadMore();
-                ViewLoading.dismiss(mContext);
             }
 
             @Override
             public void onSuccess(Object data) {
                 refresh.finishRefresh();
-                ViewLoading.dismiss(mContext);
                 MyCustomerListModel myCustomerListModel = (MyCustomerListModel) data;
                 if (myCustomerListModel.getCode() == 1) {
                     if (myCustomerListModel.getData().getList().getCurrent_page() == myCustomerListModel.getData().getList().getLast_page()) {
@@ -198,7 +198,6 @@ public class CustomerListFragment extends BaseFragment implements OnRefreshLoadM
     }
 
     private void myCustomerList1(int page, String s) {
-        ViewLoading.show(getActivity());
         Map<String, String> map = new HashMap<>();
         map.put("s", "/sales/client.index/my");
         map.put("status_id", s);
@@ -209,13 +208,11 @@ public class CustomerListFragment extends BaseFragment implements OnRefreshLoadM
             public void onFailure(String info) {
                 refresh.finishRefresh();
                 refresh.finishLoadMore();
-                ViewLoading.dismiss(mContext);
             }
 
             @Override
             public void onSuccess(Object data) {
                 refresh.finishRefresh();
-                ViewLoading.dismiss(mContext);
                 MyCustomerListModel myCustomerListModel = (MyCustomerListModel) data;
                 if (myCustomerListModel.getCode() == 1) {
                     if (myCustomerListModel.getData().getList().getCurrent_page() == myCustomerListModel.getData().getList().getLast_page()) {
