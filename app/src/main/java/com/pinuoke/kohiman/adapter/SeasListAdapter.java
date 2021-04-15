@@ -46,11 +46,18 @@ public class SeasListAdapter extends BaseAdapter<SeasListModel.DataBeanX.ListBea
             }
         }
         holder.tvPhone.setText(sb.toString());
-        if (mDatas.get(position).getTagList() != null && mDatas.get(position).getTagList().size() > 0) {
+        if (mDatas.get(position).getSource() != null) {
             holder.tvTag.setVisibility(View.VISIBLE);
-            holder.tvTag.setText(mDatas.get(position).getTagList().get(0).getName());
+            holder.tvTag.setText(mDatas.get(position).getSource().getName());
         } else {
             holder.tvTag.setVisibility(View.GONE);
+        }
+
+        if (mDatas.get(position).getStatus() != null) {
+            holder.tvTag1.setVisibility(View.VISIBLE);
+            holder.tvTag1.setText(mDatas.get(position).getStatus().getName());
+        } else {
+            holder.tvTag1.setVisibility(View.GONE);
         }
 
         holder.tvGet.setOnClickListener(v -> {
@@ -86,6 +93,8 @@ public class SeasListAdapter extends BaseAdapter<SeasListModel.DataBeanX.ListBea
         TextView tvGet;
         @BindView(R.id.fab)
         ShadowLayout fab;
+        @BindView(R.id.tv_tag1)
+        TextView tvTag1;
 
         public VH(@NonNull View itemView) {
             super(itemView);

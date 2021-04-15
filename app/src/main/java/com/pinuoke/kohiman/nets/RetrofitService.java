@@ -1,6 +1,8 @@
 package com.pinuoke.kohiman.nets;
 
 import com.pinuoke.kohiman.model.BatchToSeasModel;
+import com.pinuoke.kohiman.model.ConfigModel;
+import com.pinuoke.kohiman.model.CustomerDetailsModel;
 import com.pinuoke.kohiman.model.MyCustomerListModel;
 import com.pinuoke.kohiman.model.MyProjectListModel;
 import com.pinuoke.kohiman.model.SeasListModel;
@@ -30,7 +32,7 @@ public interface RetrofitService {
     @POST("index.php")
     Observable<SeasListModel> seasList(@QueryMap Map<String, String> queryMap);
 
-    // 公海客户
+    // 移除公海
     @POST("index.php")
     Observable<BatchToSeasModel> batchToSeas(@QueryMap Map<String, String> queryMap);
 
@@ -41,4 +43,16 @@ public interface RetrofitService {
     // 我的项目
     @POST("index.php")
     Observable<MyProjectListModel> myProjectList(@QueryMap Map<String, String> queryMap);
+
+    // 客户详情
+    @POST("index.php")
+    Observable<CustomerDetailsModel> customerDetails(@QueryMap Map<String, String> queryMap);
+
+    // 新增客户
+    @POST("index.php")
+    Observable<BatchToSeasModel> addCustomer(@QueryMap Map<String, String> queryMap);
+
+    // 配置项
+    @POST("index.php")
+    Observable<ConfigModel> config(@QueryMap Map<String, String> queryMap);
 }

@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#F7F7F7"
     android:orientation="vertical"
     tools:context=".login.LoginActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@mipmap/bg_login" />
+        android:background="@mipmap/bg_customer_details" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
-                android:src="@mipmap/goback" />
+                android:src="@mipmap/goback_white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -47,23 +48,124 @@
                 android:src="@mipmap/icon_bj" />
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_name"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="李大伟"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:layout_marginLeft="15dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/tv_name"
+                android:background="@drawable/bg_pink_10_radius"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="2dp"
+                android:textColor="#fae5ca"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_tag1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/tv_tag"
+                android:background="@drawable/bg_pink_10"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="2dp"
+                android:textColor="@color/light_black"
+                android:textSize="10sp" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="18188681234"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
             android:textColor="@color/white"
             android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bg_white_10"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tv_wx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/wx"
+                android:drawablePadding="10dp"
+                android:text="18123458669"
+                android:textColor="#4D4D4D" />
+
+            <TextView
+                android:id="@+id/tv_qq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@mipmap/qq"
+                android:drawablePadding="10dp"
+                android:text="5683439821"
+                android:textColor="#4D4D4D" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@mipmap/email"
+                android:drawablePadding="10dp"
+                android:text="5683439821@qq.com"
+                android:textColor="#4D4D4D" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@mipmap/location1"
+                android:drawablePadding="10dp"
+                android:text="合肥市滨湖新区万科蓝山25#1201"
+                android:textColor="#4D4D4D" />
+        </LinearLayout>
+
+        <com.androidkun.xtablayout.XTabLayout
+            android:id="@+id/xTablayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:overScrollMode="never"
+            app:xTabIndicatorColor="#00A9A9"
+            app:xTabIndicatorHeight="2dp"
+            app:xTabIndicatorWidth="50dp"
+            app:xTabMode="fixed"
+            app:xTabSelectedTextColor="#222222"
+            app:xTabSelectedTextSize="15sp"
+            app:xTabTextColor="#808080"
+            app:xTabTextSize="15sp" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -1,12 +1,14 @@
 package com.pinuoke.kohiman.customer;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,6 +31,10 @@ import com.timmy.tdialog.TDialog;
 import com.timmy.tdialog.base.BindViewHolder;
 import com.timmy.tdialog.listener.OnBindViewListener;
 import com.timmy.tdialog.listener.OnViewClickListener;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -78,7 +84,8 @@ public class CustomerListFragment extends BaseFragment implements OnRefreshLoadM
                         cancel(dataBeanList.get(position).getClue_id(), dataBeanList.get(position).getName());
                         break;
                     case R.id.rl_user:
-                        Intent intent = new Intent(getContext(),CustomerDetailsActivity.class);
+                        Intent intent = new Intent(getContext(), CustomerDetailsActivity.class);
+                        intent.putExtra("clue_id", dataBeanList.get(position).getClue_id() + "");
                         startActivity(intent);
                         break;
                 }
@@ -118,7 +125,7 @@ public class CustomerListFragment extends BaseFragment implements OnRefreshLoadM
                                 if (ed_mark.getText().toString().length() > 0) {
                                     batchToSeas(id, ed_mark.getText().toString());
                                     tDialog.dismiss();
-                                }else {
+                                } else {
                                     ToastUtils.showToast("请输入备注信息");
                                 }
                                 break;
@@ -242,6 +249,30 @@ public class CustomerListFragment extends BaseFragment implements OnRefreshLoadM
             myCustomerList(page, is_followed);
         } else {
             myCustomerList1(page, status_id);
+        }
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN, priority = 100, sticky = false) //在ui线程执行，优先级为100
+    public void onEvent(String event) {
+        if (event.equals("1")) {
+            page = 1;
+            dataBeanList.clear();
+            if (i == 0) {
+                myCustomerList(page, is_followed);
+            }
         }
     }
 }

@@ -3,6 +3,8 @@ package com.pinuoke.kohiman.nets;
 import android.content.Context;
 
 import com.pinuoke.kohiman.model.BatchToSeasModel;
+import com.pinuoke.kohiman.model.ConfigModel;
+import com.pinuoke.kohiman.model.CustomerDetailsModel;
 import com.pinuoke.kohiman.model.MyCustomerListModel;
 import com.pinuoke.kohiman.model.MyProjectListModel;
 import com.pinuoke.kohiman.model.SeasListModel;
@@ -158,6 +160,72 @@ public class RemotDataSourceImpl implements RemotDataSource {
 
                     @Override
                     public void onNext(MyProjectListModel s) { // 请求成功
+                        callback.onSuccess(s);
+                    }
+                });
+    }
+
+    @Override
+    public void customerDetails(Map<String, String> queryMap, getCallback callback) {
+        Observable<CustomerDetailsModel> observable = RetrofitHelper.getInstance(mContext).getServer().customerDetails(queryMap);
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<CustomerDetailsModel>() {
+                    @Override
+                    public void onCompleted() { // 完成请求后
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) { // 异常处理
+                        callback.onFailure(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(CustomerDetailsModel s) { // 请求成功
+                        callback.onSuccess(s);
+                    }
+                });
+    }
+
+    @Override
+    public void addCustomer(Map<String, String> queryMap, getCallback callback) {
+        Observable<BatchToSeasModel> observable = RetrofitHelper.getInstance(mContext).getServer().addCustomer(queryMap);
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<BatchToSeasModel>() {
+                    @Override
+                    public void onCompleted() { // 完成请求后
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) { // 异常处理
+                        callback.onFailure(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(BatchToSeasModel s) { // 请求成功
+                        callback.onSuccess(s);
+                    }
+                });
+    }
+
+    @Override
+    public void config(Map<String, String> queryMap, getCallback callback) {
+        Observable<ConfigModel> observable = RetrofitHelper.getInstance(mContext).getServer().config(queryMap);
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ConfigModel>() {
+                    @Override
+                    public void onCompleted() { // 完成请求后
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) { // 异常处理
+                        callback.onFailure(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(ConfigModel s) { // 请求成功
                         callback.onSuccess(s);
                     }
                 });

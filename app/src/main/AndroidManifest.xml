@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".customer.CustomerDetailsActivity"></activity>
+        <activity android:name=".customer.NewCustomersActivity"></activity>
+        <activity android:name=".customer.CustomerDetailsActivity" />
         <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
