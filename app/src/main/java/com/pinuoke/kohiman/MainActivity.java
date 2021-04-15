@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 
 import com.next.easynavigation.view.EasyNavigationBar;
+import com.pedaily.yc.ycdialoglib.toast.ToastUtils;
 import com.pinuoke.kohiman.adapter.FragmentTabAdapter;
 import com.pinuoke.kohiman.common.BaseActivity;
 import com.pinuoke.kohiman.customer.CustomerFragment;
@@ -87,5 +88,19 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    /**
+     * 手机返回键监听
+     */
+    long firstTime = 0;
 
+    @Override
+    public void onBackPressed() {
+        long secondTime = System.currentTimeMillis();
+        if (secondTime - firstTime > 800) { // 两次点击间隔大于800毫秒，不退出
+            ToastUtils.showToast("再按一次退出程序");
+            firstTime = secondTime; // 更新firstTime
+        } else {
+            finish();
+        }
+    }
 }
