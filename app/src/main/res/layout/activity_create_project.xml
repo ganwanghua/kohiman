@@ -48,43 +48,45 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp">
+                    android:paddingLeft="15dp"
+                    android:gravity="center"
+                    android:paddingRight="15dp">
 
-                    <TextView
-                        android:id="@+id/tv_one"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="项目名称"
-                        android:textColor="@color/light_black" />
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/tv_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="5dp"
-                        android:layout_toEndOf="@id/tv_one"
-                        android:text="*"
-                        android:textColor="@color/text_red" />
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="项目名称"
+                            android:textColor="@color/light_black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="*"
+                            android:textColor="@color/text_red" />
+                    </LinearLayout>
 
                     <EditText
                         android:id="@+id/ed_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@id/tv_1"
+                        android:layout_marginStart="5dp"
                         android:background="@color/white"
                         android:hint="请输入项目名称"
                         android:maxLines="1"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
                         android:textColor="@color/light_black"
                         android:textColorHint="@color/hint_color"
                         android:textSize="14sp" />
-                </RelativeLayout>
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -93,217 +95,272 @@
                     android:layout_marginBottom="5dp"
                     android:background="@color/line_color" />
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp">
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
 
-                    <TextView
-                        android:id="@+id/tv_two"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="项目分类"
-                        android:textColor="@color/light_black" />
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/tv_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="5dp"
-                        android:layout_toEndOf="@id/tv_two"
-                        android:text="*"
-                        android:textColor="@color/text_red" />
-
-                    <org.angmarch.views.NiceSpinner
-                        android:id="@+id/spinner_project"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@id/tv_2"
-                        android:background="@color/white"
-                        android:maxLines="1"
-                        android:textColor="@color/light_black"
-                        android:textColorHint="@color/hint_color"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@color/line_color" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:id="@+id/tv_three"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:maxEms="4"
-                        android:text="关联客户联系人"
-                        android:textColor="@color/light_black" />
-
-                    <TextView
-                        android:id="@+id/tv_3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@id/tv_three"
-                        android:text="*"
-                        android:textColor="@color/text_red" />
-
-                    <org.angmarch.views.NiceSpinner
-                        android:id="@+id/spinner_link_person"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@id/tv_3"
-                        android:background="@color/white"
-                        android:maxLines="1"
-                        android:textColor="@color/light_black"
-                        android:textColorHint="@color/hint_color"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@color/line_color" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:id="@+id/tv_four"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="开始时间"
-                        android:textColor="@color/light_black" />
-
-                    <TextView
-                        android:id="@+id/tv_4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="5dp"
-                        android:layout_toEndOf="@id/tv_four"
-                        android:text="*"
-                        android:textColor="@color/text_red" />
-
-                    <org.angmarch.views.NiceSpinner
-                        android:id="@+id/spinner_ctime"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@id/tv_4"
-                        android:background="@color/white"
-                        android:maxLines="1"
-                        android:textColor="@color/light_black"
-                        android:textColorHint="@color/hint_color"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@color/line_color" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:id="@+id/tv_five"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="截止时间"
-                        android:textColor="@color/light_black" />
-
-                    <TextView
-                        android:id="@+id/tv_5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="5dp"
-                        android:layout_toEndOf="@id/tv_five"
-                        android:text=" "
-                        android:textColor="@color/text_red" />
-
-                    <org.angmarch.views.NiceSpinner
-                        android:id="@+id/spinner_etime"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@id/tv_5"
-                        android:background="@color/white"
-                        android:maxLines="1"
-                        android:textColor="@color/light_black"
-                        android:textColorHint="@color/hint_color"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@color/line_color" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:id="@+id/tv_six"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="重点项目"
-                        android:textColor="@color/light_black" />
-
-                    <RadioGroup
-                        android:id="@+id/gender"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@id/tv_six"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/is"
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="项目分类"
+                            android:textColor="@color/light_black" />
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="是" />
+                            android:layout_marginStart="5dp"
+                            android:text="*"
+                            android:textColor="@color/text_red" />
 
-                        <RadioButton
-                            android:id="@+id/no"
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_type"
+                        android:hint="请选择"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:drawableRight="@mipmap/arrow_down"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/light_black"
+                        android:textColorHint="@color/hint_color" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/line_color" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
+
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        >
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="关联客户\n联系人"
+                            android:textColor="@color/light_black" />
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="否" />
+                            android:layout_marginStart="5dp"
+                            android:text="*"
+                            android:textColor="@color/text_red" />
 
-                    </RadioGroup>
-                </RelativeLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_link_person"
+                        android:hint="请选择关联客户联系人"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:drawableRight="@mipmap/arrow_down"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/light_black"
+                        android:textColorHint="@color/hint_color" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/line_color" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
+
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="开始时间"
+                            android:textColor="@color/light_black" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="*"
+                            android:textColor="@color/text_red" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_start_time"
+                        android:hint="请选择开始时间"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:drawableRight="@mipmap/arrow_down"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/light_black"
+                        android:textColorHint="@color/hint_color" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/line_color" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
+
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="截止时间"
+                            android:textColor="@color/light_black" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="*"
+                            android:textColor="@color/text_red" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_end_time"
+                        android:hint="请选择截止时间"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:drawableRight="@mipmap/arrow_down"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/light_black"
+                        android:textColorHint="@color/hint_color" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/line_color" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
+
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="重点项目"
+                            android:textColor="@color/light_black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="*"
+                            android:textColor="@color/text_red" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/ll_is"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp">
+
+                            <ImageView
+                                android:id="@+id/iv_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/select" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="是"
+                                android:textColor="@color/light_black" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_no"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp">
+
+                            <ImageView
+                                android:id="@+id/iv_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/unselect" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="否"
+                                android:textColor="@color/light_black" />
+                        </LinearLayout>
+
+                        <Space
+                            android:id="@+id/ll_woman"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -316,7 +373,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="10dp">
+                    android:padding="15dp">
 
                     <TextView
                         android:layout_width="wrap_content"
