@@ -28,6 +28,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/iv_log"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -70,12 +71,14 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/iv_new_project"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:background="@mipmap/new_project" />
 
             <ImageView
+                android:id="@+id/iv_project_manager"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
