@@ -15,6 +15,9 @@ import com.pinuoke.kohiman.project.ProjectFragment;
 import com.pinuoke.kohiman.utils.StatusBarUtil;
 import com.pinuoke.kohiman.workbench.WorkBenchFragment;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,6 +89,13 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN, priority = 100, sticky = false) //在ui线程执行，优先级为100
+    public void onEvent(String event) {
+        if (event.equals("3")) {
+            easyBars.selectTab(1,false);
+        }
     }
 
     /**
