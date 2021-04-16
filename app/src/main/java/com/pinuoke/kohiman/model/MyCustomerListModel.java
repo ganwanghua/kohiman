@@ -1,8 +1,9 @@
 package com.pinuoke.kohiman.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class MyCustomerListModel {
+public class MyCustomerListModel implements Serializable {
 
     /**
      * code : 1
@@ -38,7 +39,7 @@ public class MyCustomerListModel {
         this.data = data;
     }
 
-    public static class DataBeanX {
+    public static class DataBeanX implements Serializable {
         /**
          * list : {"total":6,"per_page":20,"current_page":1,"last_page":1,"data":[{"clue_id":14747,"name":"剑圣","first_character":"J","link_name":"阿卡丽","gender":{"value":1,"text":"男"},"age":55,"role_id":10013,"source_id":10026,"status_id":10018,"phone":"17497649769","phone1":"","email":"1679134966@qq.com","wechat":"13499799454","qq":"16791679","province_id":1168,"city_id":1169,"region_id":1170,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618469781,"user_id":10081,"last_user_id":0,"is_follow":0,"plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-15 14:56:21","update_time":"2021-04-15 14:56:21","address":"福建省福州市鼓楼区","tagList":[],"role":{"clue_role_id":10013,"name":"使用人","enterprise_id":10002,"sort":100,"status":1,"is_delete":0,"create_time":"2020-02-08 18:40:17","update_time":"2020-02-08 18:40:17"},"status":{"clue_status_id":10018,"name":"新增签约客户","enterprise_id":10002,"sort":7,"status":1,"must_plan_follow_time":0,"is_delete":0,"create_time":"2020-03-02 15:59:12","update_time":"2020-04-08 11:30:57"},"source":{"clue_source_id":10026,"parent_id":0,"name":"房天下","enterprise_id":10002,"sort":7,"status":1,"is_delete":0,"create_time":"2020-03-27 16:16:58","update_time":"2020-03-27 16:16:58"},"user":{"user_id":10081,"user_name":"apptest","password":"5b3a14ece3100489c908a2c07cc7db06","parent_user_id":0,"department_id":10005,"position_id":10007,"real_name":"测试","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"13333333333","birthday":0,"remark":"","last_login_time":"2021-04-15 09:10:40","is_super":0,"enterprise_id":10002,"status":1},"last_user":null,"region":{"province":"福建省","city":"福州市","region":"鼓楼区"},"noFollowDays":"--"},{"clue_id":14746,"name":"还好有你","first_character":"H","link_name":"后天","gender":{"value":1,"text":"男"},"age":0,"role_id":0,"source_id":0,"status_id":0,"phone":"13864686468","phone1":"","email":"","wechat":"","qq":"","province_id":1046,"city_id":1047,"region_id":1050,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618467196,"user_id":10081,"last_user_id":0,"is_follow":0,"plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-15 14:13:16","update_time":"2021-04-15 14:13:16","address":"安徽省合肥市蜀山区","tagList":[],"role":null,"status":null,"source":null,"user":{"user_id":10081,"user_name":"apptest","password":"5b3a14ece3100489c908a2c07cc7db06","parent_user_id":0,"department_id":10005,"position_id":10007,"real_name":"测试","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"13333333333","birthday":0,"remark":"","last_login_time":"2021-04-15 09:10:40","is_super":0,"enterprise_id":10002,"status":1},"last_user":null,"region":{"province":"安徽省","city":"合肥市","region":"蜀山区"},"noFollowDays":"--"},{"clue_id":14745,"name":"1466","first_character":"","link_name":"同工酶","gender":{"value":1,"text":"男"},"age":0,"role_id":0,"source_id":0,"status_id":0,"phone":"13894686468","phone1":"","email":"","wechat":"","qq":"","province_id":1046,"city_id":1047,"region_id":1050,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618467169,"user_id":10081,"last_user_id":0,"is_follow":0,"plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-15 14:12:50","update_time":"2021-04-15 14:12:50","address":"安徽省合肥市蜀山区","tagList":[],"role":null,"status":null,"source":null,"user":{"user_id":10081,"user_name":"apptest","password":"5b3a14ece3100489c908a2c07cc7db06","parent_user_id":0,"department_id":10005,"position_id":10007,"real_name":"测试","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"13333333333","birthday":0,"remark":"","last_login_time":"2021-04-15 09:10:40","is_super":0,"enterprise_id":10002,"status":1},"last_user":null,"region":{"province":"安徽省","city":"合肥市","region":"蜀山区"},"noFollowDays":"--"},{"clue_id":14744,"name":"苏摩","first_character":"S","link_name":"白樱","gender":{"value":2,"text":"女"},"age":0,"role_id":0,"source_id":0,"status_id":0,"phone":"13894649449","phone1":"","email":"","wechat":"","qq":"","province_id":1046,"city_id":1047,"region_id":1050,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618466878,"user_id":10081,"last_user_id":0,"is_follow":0,"plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-15 14:07:58","update_time":"2021-04-15 14:07:58","address":"安徽省合肥市蜀山区","tagList":[],"role":null,"status":null,"source":null,"user":{"user_id":10081,"user_name":"apptest","password":"5b3a14ece3100489c908a2c07cc7db06","parent_user_id":0,"department_id":10005,"position_id":10007,"real_name":"测试","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"13333333333","birthday":0,"remark":"","last_login_time":"2021-04-15 09:10:40","is_super":0,"enterprise_id":10002,"status":1},"last_user":null,"region":{"province":"安徽省","city":"合肥市","region":"蜀山区"},"noFollowDays":"--"},{"clue_id":14743,"name":"普朗克","first_character":"P","link_name":"杰克琼斯","gender":{"value":1,"text":"男"},"age":0,"role_id":0,"source_id":0,"status_id":0,"phone":"13885855555","phone1":"","email":"","wechat":"","qq":"","province_id":1046,"city_id":1047,"region_id":1050,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618466552,"user_id":10081,"last_user_id":0,"is_follow":0,"plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-15 14:02:33","update_time":"2021-04-15 14:02:33","address":"安徽省合肥市蜀山区","tagList":[],"role":null,"status":null,"source":null,"user":{"user_id":10081,"user_name":"apptest","password":"5b3a14ece3100489c908a2c07cc7db06","parent_user_id":0,"department_id":10005,"position_id":10007,"real_name":"测试","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"13333333333","birthday":0,"remark":"","last_login_time":"2021-04-15 09:10:40","is_super":0,"enterprise_id":10002,"status":1},"last_user":null,"region":{"province":"安徽省","city":"合肥市","region":"蜀山区"},"noFollowDays":"--"},{"clue_id":14556,"name":"夏先生","first_character":"X","link_name":"夏先生","gender":{"value":0,"text":"未知"},"age":0,"role_id":0,"source_id":10011,"status_id":0,"phone":"18505559888","phone1":"","email":"","wechat":"","qq":"","province_id":1046,"city_id":1047,"region_id":0,"detail":"","remark":"@直营店@柴不要了","extra":"{\"status\":\"success\",\"count\":1,\"data\":[{\"adv_id\":\"1654420645388365\",\"store_id\":0,\"clue_source\":1,\"weixin\":\"\",\"follow_state_name\":\"\\u5f85\\u8054\\u7cfb\",\"system_tags\":[\"\\u53c2\\u4e0e\\u8fd4\\u6b3e\"],\"adv_name\":\"\\u79d1\\u5e0c\\u66fc\\u7535\\u5668\\u6709\\u9650\\u516c\\u53f82\",\"site_id\":\"6869761656052121613\",\"convert_status\":\"\\u5408\\u6cd5\\u8f6c\\u5316\",\"date\":null,\"create_time\":\"1616658873\",\"remark_dict\":{\"\\u60a8\\u6240\\u5728\\u7684\\u5c0f\\u533a\":\"\\u9a6c\\u978d\\u5c71\\u5e02\\u535a\\u671b\\u533a\"},\"intention_estimation\":\"\",\"address\":\"\",\"city_name\":\"\",\"module_id\":\"1655766527473684\",\"clue_id\":\"6943497089540177928\",\"ad_plan_id\":\"1695163634266115\",\"form_remark\":\"\",\"qq\":\"\",\"remark\":\"\",\"ad_plan_name\":\"oCPM_03_03_\\u81ea\\u52a8\\u51fa\\u4ef7_1\",\"name\":\"\\u590f\\u5148\\u751f\",\"appname\":\"\\u4eca\\u65e5\\u5934\\u6761\",\"gender\":0,\"age\":0,\"cid\":1695168408432680,\"telphone\":\"18505559888\",\"clue_state_name\":\"\\u5f85\\u5206\\u914d\",\"clue_owner_name\":\"\",\"store_name\":\"\",\"country_name\":\"\",\"clue_state\":0,\"location\":\"\\u5b89\\u5fbd+\\u5408\\u80a5\",\"req_id\":\"202103251538290101501682301E0720BA\",\"clue_type\":0,\"robot_record_urls\":[],\"module_name\":\"9\\u79d2\\u83b7\\u53d6\\u62a5\\u4ef7\",\"external_url\":\"https:\\/\\/www.chengzijianzhan.com\\/tetris\\/page\\/6869761656052121613\\/\",\"email\":\"\",\"store\":{\"store_name\":\"\",\"store_id\":0,\"store_pack_remark\":\"\",\"store_pack_name\":\"\",\"store_remark\":\"\",\"store_address\":\"\",\"store_location\":\"\",\"store_pack_id\":0},\"province_name\":\"\"}]}","allot_user_id":0,"allot_time":1616658971,"user_id":10081,"last_user_id":10013,"is_follow":0,"plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"follow_user_id":0,"entry_seas_count":3,"entry_seas_time":{"text":"2021-04-14 10:44:02","value":1618368242},"is_client":1,"is_handle":0,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-03-25 15:54:33","update_time":"2021-04-14 11:08:46","address":"安徽省合肥市","tagList":[{"tag_id":10008,"name":"地暖空调"}],"role":null,"status":null,"source":{"clue_source_id":10011,"parent_id":0,"name":"头条","enterprise_id":10002,"sort":8,"status":1,"is_delete":0,"create_time":"2020-02-18 14:13:51","update_time":"2020-03-27 16:17:10"},"user":{"user_id":10081,"user_name":"apptest","password":"5b3a14ece3100489c908a2c07cc7db06","parent_user_id":0,"department_id":10005,"position_id":10007,"real_name":"测试","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"13333333333","birthday":0,"remark":"","last_login_time":"2021-04-15 09:10:40","is_super":0,"enterprise_id":10002,"status":1},"last_user":{"user_id":10013,"user_name":"sundongliang","password":"97db5dc51a3545946f91d1c6c30e6c6d","parent_user_id":0,"department_id":10005,"position_id":10007,"real_name":"孙东亮","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"13956972935","birthday":0,"remark":"","last_login_time":"2021-04-09 11:39:57","is_super":0,"enterprise_id":10002,"status":1},"region":{"province":"安徽省","city":"合肥市","region":""},"noFollowDays":"--"}]}
          */
@@ -53,7 +54,7 @@ public class MyCustomerListModel {
             this.list = list;
         }
 
-        public static class ListBean {
+        public static class ListBean implements Serializable {
             /**
              * total : 6
              * per_page : 20
@@ -108,7 +109,7 @@ public class MyCustomerListModel {
                 this.data = data;
             }
 
-            public static class DataBean {
+            public static class DataBean implements Serializable {
                 /**
                  * clue_id : 14747
                  * name : 剑圣
@@ -573,7 +574,7 @@ public class MyCustomerListModel {
                     this.tagList = tagList;
                 }
 
-                public static class GenderBean {
+                public static class GenderBean implements Serializable{
                     /**
                      * value : 1
                      * text : 男
@@ -599,7 +600,7 @@ public class MyCustomerListModel {
                     }
                 }
 
-                public static class PlanFollowTimeBean {
+                public static class PlanFollowTimeBean implements Serializable{
                     /**
                      * text :
                      * value : 0
@@ -625,7 +626,7 @@ public class MyCustomerListModel {
                     }
                 }
 
-                public static class FollowTimeBean {
+                public static class FollowTimeBean implements Serializable{
                     /**
                      * text :
                      * value : 0
@@ -651,7 +652,7 @@ public class MyCustomerListModel {
                     }
                 }
 
-                public static class EntrySeasTimeBean {
+                public static class EntrySeasTimeBean implements Serializable{
                     /**
                      * text :
                      * value : 0
@@ -677,7 +678,7 @@ public class MyCustomerListModel {
                     }
                 }
 
-                public static class RoleBean {
+                public static class RoleBean implements Serializable{
                     /**
                      * clue_role_id : 10013
                      * name : 使用人
@@ -763,7 +764,7 @@ public class MyCustomerListModel {
                     }
                 }
 
-                public static class StatusBean {
+                public static class StatusBean implements Serializable{
                     /**
                      * clue_status_id : 10018
                      * name : 新增签约客户
@@ -859,7 +860,7 @@ public class MyCustomerListModel {
                     }
                 }
 
-                public static class SourceBean {
+                public static class SourceBean implements Serializable{
                     /**
                      * clue_source_id : 10026
                      * parent_id : 0
@@ -955,7 +956,7 @@ public class MyCustomerListModel {
                     }
                 }
 
-                public static class UserBean {
+                public static class UserBean implements Serializable{
                     /**
                      * user_id : 10081
                      * user_name : apptest
@@ -1120,7 +1121,7 @@ public class MyCustomerListModel {
                         this.status = status;
                     }
 
-                    public static class GenderBeanX {
+                    public static class GenderBeanX implements Serializable{
                         /**
                          * value : 0
                          * text : 未知
@@ -1147,7 +1148,7 @@ public class MyCustomerListModel {
                     }
                 }
 
-                public static class RegionBean {
+                public static class RegionBean implements Serializable{
                     /**
                      * province : 福建省
                      * city : 福州市

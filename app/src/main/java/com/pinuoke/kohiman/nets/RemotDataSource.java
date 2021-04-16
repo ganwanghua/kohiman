@@ -31,6 +31,8 @@ public interface RemotDataSource {
 
     void addCustomer(Map<String, String> queryMap, getCallback callback);
 
+    void editCustomer(Map<String, String> queryMap, getCallback callback);
+
     void config(Map<String, String> queryMap, getCallback callback);
 
     void follow(Map<String, String> queryMap, getCallback callback);

@@ -68,6 +68,11 @@ public class DataRepository implements RemotDataSource {
     }
 
     @Override
+    public void editCustomer(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.editCustomer(queryMap, callback);
+    }
+
+    @Override
     public void config(Map<String, String> queryMap, getCallback callback) {
         mRemoteDataSource.config(queryMap, callback);
     }

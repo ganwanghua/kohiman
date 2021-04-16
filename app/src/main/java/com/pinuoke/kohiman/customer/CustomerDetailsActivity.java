@@ -1,5 +1,6 @@
 package com.pinuoke.kohiman.customer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,11 +16,13 @@ import com.pinuoke.kohiman.R;
 import com.pinuoke.kohiman.adapter.FragmentAdapter;
 import com.pinuoke.kohiman.common.BaseActivity;
 import com.pinuoke.kohiman.model.CustomerDetailsModel;
+import com.pinuoke.kohiman.model.MyCustomerListModel;
 import com.pinuoke.kohiman.nets.DataRepository;
 import com.pinuoke.kohiman.nets.Injection;
 import com.pinuoke.kohiman.nets.RemotDataSource;
 import com.pinuoke.kohiman.utils.FastData;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -60,6 +63,8 @@ public class CustomerDetailsActivity extends BaseActivity {
     @BindView(R.id.tv_tag1)
     TextView tvTag1;
     private DataRepository dataRepository;
+    private int pos;
+    private List<MyCustomerListModel.DataBeanX.ListBean.DataBean> dataBeanList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +73,8 @@ public class CustomerDetailsActivity extends BaseActivity {
         setContentView(R.layout.activity_customer_details);
         ButterKnife.bind(this);
         dataRepository = Injection.dataRepository(this);
-
+        dataBeanList = (List<MyCustomerListModel.DataBeanX.ListBean.DataBean>) getIntent().getSerializableExtra("data");
+        pos = getIntent().getIntExtra("pos", -1);
         customerDetails();
     }
 
@@ -135,6 +141,10 @@ public class CustomerDetailsActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.iv_edit:
+                Intent intent2 = new Intent(this, EditCustomersActivity.class);
+                intent2.putExtra("data", (Serializable) dataBeanList);
+                intent2.putExtra("pos", pos);
+                startActivity(intent2);
                 break;
         }
     }

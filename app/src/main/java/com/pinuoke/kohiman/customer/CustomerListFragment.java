@@ -36,6 +36,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -85,11 +86,25 @@ public class CustomerListFragment extends BaseFragment implements OnRefreshLoadM
                         break;
                     case R.id.rl_user:
                         Intent intent = new Intent(getContext(), CustomerDetailsActivity.class);
+                        intent.putExtra("pos", position);
+                        intent.putExtra("data", (Serializable) dataBeanList);
                         intent.putExtra("clue_id", dataBeanList.get(position).getClue_id() + "");
                         startActivity(intent);
                         break;
                     case R.id.tv_follow_up:
-
+                        Intent intent1 = new Intent(getContext(), FollowUpActivity.class);
+                        intent1.putExtra("clue_id", dataBeanList.get(position).getClue_id() + "");
+                        intent1.putExtra("name", dataBeanList.get(position).getName());
+                        intent1.putExtra("userName", dataBeanList.get(position).getLink_name());
+                        intent1.putExtra("status", dataBeanList.get(position).getStatus() == null ? "" : dataBeanList.get(position).getStatus().getName());
+                        intent1.putExtra("status_id", dataBeanList.get(position).getStatus_id() + "");
+                        startActivity(intent1);
+                        break;
+                    case R.id.tv_edit:
+                        Intent intent2 = new Intent(getContext(), EditCustomersActivity.class);
+                        intent2.putExtra("data", (Serializable) dataBeanList);
+                        intent2.putExtra("pos", position);
+                        startActivity(intent2);
                         break;
                 }
             }
@@ -260,7 +275,6 @@ public class CustomerListFragment extends BaseFragment implements OnRefreshLoadM
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
-
 
     @Subscribe(threadMode = ThreadMode.MAIN, priority = 100, sticky = false) //在ui线程执行，优先级为100
     public void onEvent(String event) {

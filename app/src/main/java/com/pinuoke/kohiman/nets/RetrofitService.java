@@ -52,6 +52,10 @@ public interface RetrofitService {
     @POST("index.php")
     Observable<BatchToSeasModel> addCustomer(@QueryMap Map<String, String> queryMap);
 
+    // 编辑客户
+    @POST("index.php")
+    Observable<StatusModel> editCustomer(@QueryMap Map<String, String> queryMap);
+
     // 配置项
     @POST("index.php")
     Observable<ConfigModel> config(@QueryMap Map<String, String> queryMap);
