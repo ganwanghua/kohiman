@@ -59,10 +59,12 @@
 
         <TextView
             android:id="@+id/tvAcceptStation"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvAcceptTime"
             android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:background="@drawable/bg_white_8"
             android:textColor="#A5A5A5"
             android:textSize="11sp" />
     </RelativeLayout>
