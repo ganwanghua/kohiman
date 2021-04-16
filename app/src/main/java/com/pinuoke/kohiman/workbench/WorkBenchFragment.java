@@ -1,5 +1,6 @@
 package com.pinuoke.kohiman.workbench;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +31,7 @@ public class WorkBenchFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_log:
+                startActivity(new Intent(getContext(), LogActivity.class));
                 break;
             case R.id.iv_new_project:
                 break;

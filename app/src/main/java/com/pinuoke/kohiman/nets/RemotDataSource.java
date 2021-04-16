@@ -36,4 +36,6 @@ public interface RemotDataSource {
     void config(Map<String, String> queryMap, getCallback callback);
 
     void follow(Map<String, String> queryMap, getCallback callback);
+
+    void log(Map<String, String> queryMap, getCallback callback);
 }
