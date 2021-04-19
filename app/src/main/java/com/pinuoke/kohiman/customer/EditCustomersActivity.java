@@ -108,73 +108,6 @@ public class EditCustomersActivity extends BaseActivity {
 
         dataBeanList = (List<MyCustomerListModel.DataBeanX.ListBean.DataBean>) getIntent().getSerializableExtra("data");
         pos = getIntent().getIntExtra("pos", -1);
-        edName.setText(dataBeanList.get(pos).getName());
-        edUserName.setText(dataBeanList.get(pos).getLink_name());
-        edPhone.setText(dataBeanList.get(pos).getPhone());
-        if (dataBeanList.get(pos).getGender().getValue() == 0) {
-            iv1.setImageResource(R.mipmap.select);
-            iv2.setImageResource(R.mipmap.unselect);
-            iv3.setImageResource(R.mipmap.unselect);
-        } else if (dataBeanList.get(pos).getGender().getValue() == 1) {
-            iv2.setImageResource(R.mipmap.select);
-            iv1.setImageResource(R.mipmap.unselect);
-            iv3.setImageResource(R.mipmap.unselect);
-        } else if (dataBeanList.get(pos).getGender().getValue() == 2) {
-            iv3.setImageResource(R.mipmap.select);
-            iv1.setImageResource(R.mipmap.unselect);
-            iv2.setImageResource(R.mipmap.unselect);
-        }
-        if (dataBeanList.get(pos).getAge() > 0) {
-            edAge.setText(dataBeanList.get(pos).getAge() + "");
-        } else {
-            edAge.setHint("请输入");
-        }
-        if (dataBeanList.get(pos).getRole() == null) {
-            tvRole.setHint("未知");
-            roleId = "";
-        } else {
-            tvRole.setText(dataBeanList.get(pos).getRole().getName());
-            roleId = configModel.getData().getRoleList().get(position).getClue_role_id() + "";
-        }
-        if (dataBeanList.get(pos).getSource() == null) {
-            tvCustomerSource.setHint("未知");
-            sourceId = "";
-        } else {
-            tvCustomerSource.setText(dataBeanList.get(pos).getSource().getName());
-            sourceId = configModel.getData().getSourceList().get(position).getClue_source_id() + "";
-        }
-        if (dataBeanList.get(pos).getStatus() == null) {
-            tvStatus.setHint("未知");
-            statusId = "";
-        } else {
-            tvStatus.setText(dataBeanList.get(pos).getStatus().getName());
-            statusId = configModel.getData().getStatusList().get(position).getClue_status_id() + "";
-        }
-        if (dataBeanList.get(pos).getEmail() == null) {
-            edEmail.setHint("请输入邮箱");
-        } else {
-            edEmail.setText(dataBeanList.get(pos).getEmail());
-        }
-        if (dataBeanList.get(pos).getWechat() == null) {
-            edWx.setHint("请输入微信");
-        } else {
-            edWx.setText(dataBeanList.get(pos).getWechat());
-        }
-        if (dataBeanList.get(pos).getQq() == null) {
-            edQq.setHint("请输入QQ");
-        } else {
-            edQq.setText(dataBeanList.get(pos).getQq());
-        }
-        if (dataBeanList.get(pos).getRegion() == null) {
-            tvArea.setHint("请选择省市区");
-        } else {
-            tvArea.setText(dataBeanList.get(pos).getRegion().getProvince() + dataBeanList.get(pos).getRegion().getCity() + dataBeanList.get(pos).getRegion().getRegion());
-        }
-        if (dataBeanList.get(pos).getDetail() == null) {
-            edAddress.setHint("请输入详细地址");
-        } else {
-            edAddress.setText(dataBeanList.get(pos).getDetail());
-        }
 
         dataRepository = Injection.dataRepository(this);
         config();
@@ -204,6 +137,74 @@ public class EditCustomersActivity extends BaseActivity {
                     }
                     for (int i = 0; i < configModel.getData().getStatusList().size(); i++) {
                         statusList.add(configModel.getData().getStatusList().get(i).getName());
+                    }
+
+                    edName.setText(dataBeanList.get(pos).getName());
+                    edUserName.setText(dataBeanList.get(pos).getLink_name());
+                    edPhone.setText(dataBeanList.get(pos).getPhone());
+                    if (dataBeanList.get(pos).getGender().getValue() == 0) {
+                        iv1.setImageResource(R.mipmap.select);
+                        iv2.setImageResource(R.mipmap.unselect);
+                        iv3.setImageResource(R.mipmap.unselect);
+                    } else if (dataBeanList.get(pos).getGender().getValue() == 1) {
+                        iv2.setImageResource(R.mipmap.select);
+                        iv1.setImageResource(R.mipmap.unselect);
+                        iv3.setImageResource(R.mipmap.unselect);
+                    } else if (dataBeanList.get(pos).getGender().getValue() == 2) {
+                        iv3.setImageResource(R.mipmap.select);
+                        iv1.setImageResource(R.mipmap.unselect);
+                        iv2.setImageResource(R.mipmap.unselect);
+                    }
+                    if (dataBeanList.get(pos).getAge() > 0) {
+                        edAge.setText(dataBeanList.get(pos).getAge() + "");
+                    } else {
+                        edAge.setHint("请输入");
+                    }
+                    if (dataBeanList.get(pos).getRole() == null) {
+                        tvRole.setHint("未知");
+                        roleId = "";
+                    } else {
+                        tvRole.setText(dataBeanList.get(pos).getRole().getName());
+                        roleId = configModel.getData().getRoleList().get(position).getClue_role_id() + "";
+                    }
+                    if (dataBeanList.get(pos).getSource() == null) {
+                        tvCustomerSource.setHint("未知");
+                        sourceId = "";
+                    } else {
+                        tvCustomerSource.setText(dataBeanList.get(pos).getSource().getName());
+                        sourceId = configModel.getData().getSourceList().get(position).getClue_source_id() + "";
+                    }
+                    if (dataBeanList.get(pos).getStatus() == null) {
+                        tvStatus.setHint("未知");
+                        statusId = "";
+                    } else {
+                        tvStatus.setText(dataBeanList.get(pos).getStatus().getName());
+                        statusId = configModel.getData().getStatusList().get(position).getClue_status_id() + "";
+                    }
+                    if (dataBeanList.get(pos).getEmail() == null) {
+                        edEmail.setHint("请输入邮箱");
+                    } else {
+                        edEmail.setText(dataBeanList.get(pos).getEmail());
+                    }
+                    if (dataBeanList.get(pos).getWechat() == null) {
+                        edWx.setHint("请输入微信");
+                    } else {
+                        edWx.setText(dataBeanList.get(pos).getWechat());
+                    }
+                    if (dataBeanList.get(pos).getQq() == null) {
+                        edQq.setHint("请输入QQ");
+                    } else {
+                        edQq.setText(dataBeanList.get(pos).getQq());
+                    }
+                    if (dataBeanList.get(pos).getRegion() == null) {
+                        tvArea.setHint("请选择省市区");
+                    } else {
+                        tvArea.setText(dataBeanList.get(pos).getRegion().getProvince() + dataBeanList.get(pos).getRegion().getCity() + dataBeanList.get(pos).getRegion().getRegion());
+                    }
+                    if (dataBeanList.get(pos).getDetail() == null) {
+                        edAddress.setHint("请输入详细地址");
+                    } else {
+                        edAddress.setText(dataBeanList.get(pos).getDetail());
                     }
                 }
             }

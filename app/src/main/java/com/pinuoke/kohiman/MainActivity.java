@@ -32,7 +32,7 @@ public class MainActivity extends BaseActivity {
     private List<Fragment> fragments = new ArrayList<>();
 
     private String[] strings = {"客户管理", "项目管理", "工作台", "个人中心"};
-    private int[] selectList = {R.mipmap.customer_management_1, R.mipmap.project_management_1, R.mipmap.workbench_1,  R.mipmap.mine_1};
+    private int[] selectList = {R.mipmap.customer_management_1, R.mipmap.project_management_1, R.mipmap.workbench_1, R.mipmap.mine_1};
     private int[] unSelectList = {R.mipmap.customer_management, R.mipmap.project_management, R.mipmap.workbench, R.mipmap.mine};
 
 
@@ -94,7 +94,9 @@ public class MainActivity extends BaseActivity {
     @Subscribe(threadMode = ThreadMode.MAIN, priority = 100, sticky = false) //在ui线程执行，优先级为100
     public void onEvent(String event) {
         if (event.equals("3")) {
-            easyBars.selectTab(1,false);
+            easyBars.selectTab(1, false);
+        } else if (event.equals("6")) {
+            easyBars.selectTab(0, false);
         }
     }
 

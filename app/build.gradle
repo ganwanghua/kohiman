@@ -87,4 +87,5 @@ dependencies {
 
 
     implementation 'com.github.codbking:CalendarExaple:v1.0.0'
+    implementation 'com.openxu.viewlib:OXViewLib:1.0.2'
 }

@@ -11,8 +11,11 @@ import com.pedaily.yc.ycdialoglib.toast.ToastUtils;
 import com.pinuoke.kohiman.R;
 import com.pinuoke.kohiman.common.BaseFragment;
 import com.pinuoke.kohiman.login.LoginActivity;
+import com.pinuoke.kohiman.model.MyCustomerListModel;
+import com.pinuoke.kohiman.model.UserInfoModel;
 import com.pinuoke.kohiman.nets.DataRepository;
 import com.pinuoke.kohiman.nets.Injection;
+import com.pinuoke.kohiman.nets.RemotDataSource;
 import com.pinuoke.kohiman.utils.DataCleanManager;
 import com.pinuoke.kohiman.utils.FastData;
 import com.pinuoke.kohiman.weight.RoundImageView;
@@ -20,6 +23,11 @@ import com.timmy.tdialog.TDialog;
 import com.timmy.tdialog.base.BindViewHolder;
 import com.timmy.tdialog.listener.OnBindViewListener;
 import com.timmy.tdialog.listener.OnViewClickListener;
+
+import org.greenrobot.eventbus.EventBus;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -81,16 +89,41 @@ public class MineFragment extends BaseFragment {
             e.printStackTrace();
         }
         dataRepository = Injection.dataRepository(mContext);
+
+        userInfo();
+    }
+
+    private void userInfo() {
+        Map<String, String> map = new HashMap<>();
+        map.put("s", "/sales/user/detail");
+        map.put("token", FastData.getToken());
+        dataRepository.userInfo(map, new RemotDataSource.getCallback() {
+            @Override
+            public void onFailure(String info) {
+            }
+
+            @Override
+            public void onSuccess(Object data) {
+                UserInfoModel userInfoModel = (UserInfoModel) data;
+                if (userInfoModel.getCode() == 1) {
+                    tvName.setText(userInfoModel.getData().getUserInfo().getReal_name());
+                    tvPhone.setText(userInfoModel.getData().getUserInfo().getPosition().getName());
+                }
+            }
+        });
     }
 
     @OnClick({R.id.rl_data, R.id.rl_customer, R.id.rl_project, R.id.rl_advise, R.id.rl_clear, R.id.rl_exit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_data:
+                startActivity(new Intent(getContext(),MyDataActivity.class));
                 break;
             case R.id.rl_customer:
+                EventBus.getDefault().post("6");
                 break;
             case R.id.rl_project:
+                EventBus.getDefault().post("3");
                 break;
             case R.id.rl_advise:
                 break;
@@ -114,8 +147,6 @@ public class MineFragment extends BaseFragment {
         Intent intent = new Intent(mContext, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
-        getActivity().finish();
-
     }
 
     private void showExitDialog() {
@@ -140,7 +171,6 @@ public class MineFragment extends BaseFragment {
                             case R.id.tv_sure:
                                 exit();
                                 tDialog.dismiss();
-
                                 break;
                         }
                     }

@@ -38,4 +38,8 @@ public interface RemotDataSource {
     void follow(Map<String, String> queryMap, getCallback callback);
 
     void log(Map<String, String> queryMap, getCallback callback);
+
+    void userInfo(Map<String, String> queryMap, getCallback callback);
+
+    void myData(Map<String, String> queryMap, getCallback callback);
 }

@@ -5,9 +5,11 @@ import com.pinuoke.kohiman.model.ConfigModel;
 import com.pinuoke.kohiman.model.CustomerDetailsModel;
 import com.pinuoke.kohiman.model.LogModel;
 import com.pinuoke.kohiman.model.MyCustomerListModel;
+import com.pinuoke.kohiman.model.MyDataModel;
 import com.pinuoke.kohiman.model.MyProjectListModel;
 import com.pinuoke.kohiman.model.SeasListModel;
 import com.pinuoke.kohiman.model.StatusModel;
+import com.pinuoke.kohiman.model.UserInfoModel;
 
 import java.util.Map;
 
@@ -68,4 +70,12 @@ public interface RetrofitService {
     // 工作日志
     @POST("index.php")
     Observable<LogModel> log(@QueryMap Map<String, String> queryMap);
+
+    // 用户信息
+    @POST("index.php")
+    Observable<UserInfoModel> userInfo(@QueryMap Map<String, String> queryMap);
+
+    // 数据统计
+    @POST("index.php")
+    Observable<MyDataModel> myData(@QueryMap Map<String, String> queryMap);
 }

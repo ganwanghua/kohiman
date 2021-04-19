@@ -7,9 +7,12 @@ import com.pinuoke.kohiman.model.ConfigModel;
 import com.pinuoke.kohiman.model.CustomerDetailsModel;
 import com.pinuoke.kohiman.model.LogModel;
 import com.pinuoke.kohiman.model.MyCustomerListModel;
+import com.pinuoke.kohiman.model.MyDataModel;
 import com.pinuoke.kohiman.model.MyProjectListModel;
 import com.pinuoke.kohiman.model.SeasListModel;
 import com.pinuoke.kohiman.model.StatusModel;
+import com.pinuoke.kohiman.model.UserInfoModel;
+
 import java.util.Map;
 import rx.Observable;
 import rx.Observer;
@@ -293,6 +296,50 @@ public class RemotDataSourceImpl implements RemotDataSource {
 
                     @Override
                     public void onNext(LogModel s) { // 请求成功
+                        callback.onSuccess(s);
+                    }
+                });
+    }
+
+    @Override
+    public void userInfo(Map<String, String> queryMap, getCallback callback) {
+        Observable<UserInfoModel> observable = RetrofitHelper.getInstance(mContext).getServer().userInfo(queryMap);
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<UserInfoModel>() {
+                    @Override
+                    public void onCompleted() { // 完成请求后
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) { // 异常处理
+                        callback.onFailure(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(UserInfoModel s) { // 请求成功
+                        callback.onSuccess(s);
+                    }
+                });
+    }
+
+    @Override
+    public void myData(Map<String, String> queryMap, getCallback callback) {
+        Observable<MyDataModel> observable = RetrofitHelper.getInstance(mContext).getServer().myData(queryMap);
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<MyDataModel>() {
+                    @Override
+                    public void onCompleted() { // 完成请求后
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) { // 异常处理
+                        callback.onFailure(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(MyDataModel s) { // 请求成功
                         callback.onSuccess(s);
                     }
                 });
