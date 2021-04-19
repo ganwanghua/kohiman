@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".workbench.LogActivity"></activity>
+        <activity android:name=".mine.MyDataActivity"></activity>
+        <activity android:name=".workbench.LogActivity" />
         <activity android:name=".customer.EditCustomersActivity" />
         <activity android:name=".customer.FollowUpActivity" />
         <activity android:name=".customer.NewCustomersActivity" />
