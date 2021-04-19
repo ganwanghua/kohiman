@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:textSize="12sp"
+        android:id="@+id/tv_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="跟进类型"
+        android:textColor="@color/grey_9" />
+
+    <TextView
+        android:textSize="12sp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:id="@+id/tv_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="跟进内容"
+        android:textColor="@color/grey_9" />
+
+    <TextView
+        android:textSize="12sp"
+        android:id="@+id/tv_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="跟进人/跟进时间"
+        android:textColor="@color/grey_9" />
+</LinearLayout>

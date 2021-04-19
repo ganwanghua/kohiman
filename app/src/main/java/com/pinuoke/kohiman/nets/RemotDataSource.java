@@ -52,4 +52,6 @@ public interface RemotDataSource {
     void myData(Map<String, String> queryMap, getCallback callback);
 
     void editProject(Map<String, String> queryMap, getCallback callback);
+
+    void projectDetail(Map<String, String> queryMap, getCallback callback);
 }

@@ -11,6 +11,7 @@ import com.pinuoke.kohiman.model.MyDataModel;
 import com.pinuoke.kohiman.model.MyProjectListModel;
 import com.pinuoke.kohiman.model.ProjectClientListModel;
 import com.pinuoke.kohiman.model.ProjectConfigModel;
+import com.pinuoke.kohiman.model.ProjectDetailModel;
 import com.pinuoke.kohiman.model.SeasListModel;
 import com.pinuoke.kohiman.model.StatusModel;
 import com.pinuoke.kohiman.model.UserInfoModel;
@@ -364,6 +365,28 @@ public class RemotDataSourceImpl implements RemotDataSource {
 
                     @Override
                     public void onNext(StatusModel s) { // 请求成功
+                        callback.onSuccess(s);
+                    }
+                });
+    }
+
+    @Override
+    public void projectDetail(Map<String, String> queryMap, getCallback callback) {
+        Observable<ProjectDetailModel> observable = RetrofitHelper.getInstance(mContext).getServer().projectDetail(queryMap);
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ProjectDetailModel>() {
+                    @Override
+                    public void onCompleted() { // 完成请求后
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) { // 异常处理
+                        callback.onFailure(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(ProjectDetailModel s) { // 请求成功
                         callback.onSuccess(s);
                     }
                 });

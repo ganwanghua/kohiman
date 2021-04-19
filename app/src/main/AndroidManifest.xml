@@ -38,6 +38,7 @@
         <activity android:name=".project.LinkPersonActivity" />
         <activity android:name=".project.FollowUpProjectActivity" />
         <activity android:name=".project.EditProjectActivity" />
+        <activity android:name=".project.ProjectDetailsActivity" />
     </application>
 
 </manifest>

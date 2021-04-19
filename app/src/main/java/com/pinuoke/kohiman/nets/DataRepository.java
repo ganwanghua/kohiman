@@ -121,4 +121,9 @@ public class DataRepository implements RemotDataSource {
     public void editProject(Map<String, String> queryMap, getCallback callback) {
         mRemoteDataSource.editProject(queryMap, callback);
     }
+
+    @Override
+    public void projectDetail(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.projectDetail(queryMap, callback);
+    }
 }

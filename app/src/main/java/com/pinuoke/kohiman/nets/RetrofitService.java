@@ -9,6 +9,7 @@ import com.pinuoke.kohiman.model.MyDataModel;
 import com.pinuoke.kohiman.model.MyProjectListModel;
 import com.pinuoke.kohiman.model.ProjectClientListModel;
 import com.pinuoke.kohiman.model.ProjectConfigModel;
+import com.pinuoke.kohiman.model.ProjectDetailModel;
 import com.pinuoke.kohiman.model.SeasListModel;
 import com.pinuoke.kohiman.model.StatusModel;
 import com.pinuoke.kohiman.model.UserInfoModel;
@@ -102,5 +103,6 @@ public interface RetrofitService {
     Observable<StatusModel> editProject(@QueryMap Map<String, String> queryMap);
 
     //项目详情
-
+    @POST("index.php")
+    Observable<ProjectDetailModel> projectDetail(@QueryMap Map<String, String> queryMap);
 }
