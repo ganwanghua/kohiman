@@ -35,6 +35,9 @@
         <activity
             android:name=".project.CreateProjectActivity"
             android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity android:name=".project.LinkPersonActivity" />
+        <activity android:name=".project.FollowUpProjectActivity" />
+        <activity android:name=".project.EditProjectActivity" />
     </application>
 
 </manifest>

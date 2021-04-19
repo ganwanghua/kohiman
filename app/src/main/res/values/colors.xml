@@ -6,6 +6,7 @@
 
     <color name="red">#FF0000</color>
     <color name="text_red">#F37B6F</color>
+    <color name="text_grey">#808080</color>
     <color name="black">#000000</color>
     <color name="black_2">#222222</color>
     <color name="black_1">#111111</color>

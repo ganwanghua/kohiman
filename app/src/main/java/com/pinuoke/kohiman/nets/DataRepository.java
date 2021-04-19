@@ -83,6 +83,26 @@ public class DataRepository implements RemotDataSource {
     }
 
     @Override
+    public void projectAdd(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.projectAdd(queryMap, callback);
+    }
+
+    @Override
+    public void projectConfig(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.projectConfig(queryMap, callback);
+    }
+
+    @Override
+    public void projectClientList(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.projectClientList(queryMap, callback);
+    }
+
+    @Override
+    public void projectFollowAdd(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.projectFollowAdd(queryMap, callback);
+    }
+
+    @Override
     public void log(Map<String, String> queryMap, getCallback callback) {
         mRemoteDataSource.log(queryMap, callback);
     }
@@ -95,5 +115,10 @@ public class DataRepository implements RemotDataSource {
     @Override
     public void myData(Map<String, String> queryMap, getCallback callback) {
         mRemoteDataSource.myData(queryMap, callback);
+    }
+
+    @Override
+    public void editProject(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.editProject(queryMap, callback);
     }
 }

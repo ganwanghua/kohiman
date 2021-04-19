@@ -37,9 +37,19 @@ public interface RemotDataSource {
 
     void follow(Map<String, String> queryMap, getCallback callback);
 
+    void projectAdd(Map<String, String> queryMap, getCallback callback);
+
+    void projectConfig(Map<String, String> queryMap, getCallback callback);
+
+    void projectClientList(Map<String, String> queryMap, getCallback callback);
+
+    void projectFollowAdd(Map<String, String> queryMap, getCallback callback);
+
     void log(Map<String, String> queryMap, getCallback callback);
 
     void userInfo(Map<String, String> queryMap, getCallback callback);
 
     void myData(Map<String, String> queryMap, getCallback callback);
+
+    void editProject(Map<String, String> queryMap, getCallback callback);
 }

@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="新建项目"
+            android:text="编辑项目"
             android:textColor="@color/black_1"
             android:textSize="16sp" />
     </RelativeLayout>

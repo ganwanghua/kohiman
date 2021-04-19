@@ -24,6 +24,7 @@ import com.pedaily.yc.ycdialoglib.toast.ToastUtils;
 import com.pinuoke.kohiman.R;
 import com.pinuoke.kohiman.adapter.GridViewAdapter;
 import com.pinuoke.kohiman.common.BaseActivity;
+import com.pinuoke.kohiman.model.MyProjectListModel;
 import com.pinuoke.kohiman.model.ProjectClientListModel;
 import com.pinuoke.kohiman.model.ProjectConfigModel;
 import com.pinuoke.kohiman.model.StatusModel;
@@ -31,7 +32,6 @@ import com.pinuoke.kohiman.nets.DataRepository;
 import com.pinuoke.kohiman.nets.Injection;
 import com.pinuoke.kohiman.nets.RemotDataSource;
 import com.pinuoke.kohiman.utils.FastData;
-import com.pinuoke.kohiman.utils.StatusBarUtil;
 import com.pinuoke.kohiman.weight.GlideEngine;
 import com.pinuoke.kohiman.weight.GridViewInScrollView;
 import com.tbruyelle.rxpermissions3.RxPermissions;
@@ -52,7 +52,7 @@ import cn.qqtheme.framework.picker.DatePicker;
 import cn.qqtheme.framework.picker.OptionPicker;
 import cn.qqtheme.framework.widget.WheelView;
 
-public class CreateProjectActivity extends BaseActivity {
+public class EditProjectActivity extends BaseActivity {
 
 
     @BindView(R.id.iv_back)
@@ -147,7 +147,7 @@ detail	否	string	项目详情
     protected void onCreate(Bundle savedInstanceState) {
         initWhite();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_project);
+        setContentView(R.layout.activity_edit_project);
         ButterKnife.bind(this);
         initView();
         initData();
@@ -163,9 +163,9 @@ detail	否	string	项目详情
         cbFollowUp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     look_follow = "1";
-                }else {
+                } else {
                     look_follow = "0";
                 }
             }
@@ -173,9 +173,9 @@ detail	否	string	项目详情
         cbContactInfo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     look_phone = "1";
-                }else {
+                } else {
                     look_phone = "0";
                 }
             }
@@ -185,6 +185,45 @@ detail	否	string	项目详情
     private void initData() {
         dataRepository = Injection.dataRepository(mContext);
         projectConfig();
+        MyProjectListModel.DataBeanX.ListBean.DataBean dataBean = (MyProjectListModel.DataBeanX.ListBean.DataBean) getIntent().getSerializableExtra("DataBean");
+        if (dataBean.getIs_emphasis() == 0) {
+            iv1.setImageResource(R.mipmap.select);
+            iv2.setImageResource(R.mipmap.unselect);
+        } else {
+            iv2.setImageResource(R.mipmap.select);
+            iv1.setImageResource(R.mipmap.unselect);
+        }
+        edName.setText(dataBean.getName());
+        tvType.setText(dataBean.getCategory().getName());
+        category_id = dataBean.getCategory().getCategory_id() + "";
+        tvStage.setText(dataBean.getStatus().getName());
+        status_id = dataBean.getStatus().getProject_status_id() + "";
+        tvLinkPerson.setText(dataBean.getClient().get(0).getClient().getName());
+        client_id = dataBean.getClient().get(0).getClient().getClue_id() + "";
+        if (dataBean.getClient().get(0).getRole() != null) {
+            tvRole.setText(dataBean.getClient().get(0).getRole().getName());
+            role_id = dataBean.getClient().get(0).getRole().getClue_role_id() + "";
+        }
+        phone = dataBean.getClient().get(0).getPhone();
+        tvLinkClient.setText(dataBean.getUser().get(0).getUser().getUser_name());
+        user_id = dataBean.getUser().get(0).getUser().getUser_id() + "";
+        if (dataBean.getUser().get(0).getLook_follow() == 1) {
+            cbFollowUp.setChecked(true);
+        } else {
+            cbFollowUp.setChecked(false);
+        }
+        if (dataBean.getUser().get(0).getLook_phone() == 1) {
+            cbContactInfo.setChecked(true);
+        } else {
+            cbContactInfo.setChecked(false);
+        }
+        tvStartTime.setText(dataBean.getStart_time());
+        start_time = dataBean.getStart_time();
+        if (!TextUtils.isEmpty(dataBean.getEnd_time())) {
+            tvEndTime.setText(dataBean.getEnd_time());
+            end_time = dataBean.getEnd_time();
+        }
+        edContent.setText(dataBean.getDetail());
     }
 
     private void projectConfig() {
@@ -226,10 +265,10 @@ detail	否	string	项目详情
     }
 
 
-    private void projectAdd() {
+    private void editProject() {
         ViewLoading.show(this);
         Map<String, String> map = new HashMap<>();
-        map.put("s", "/sales/project.index/add");
+        map.put("s", "/sales/project.index/edit/project_id/" + getIntent().getStringExtra("project_id"));
         map.put("token", FastData.getToken());
         map.put("name", edName.getText().toString());
         map.put("category_id", category_id);
@@ -243,10 +282,10 @@ detail	否	string	项目详情
         map.put("start_time", start_time);
         map.put("end_time", end_time);
         map.put("is_emphasis", is_emphasis);
-        if(!TextUtils.isEmpty(edContent.getText().toString())){
+        if (!TextUtils.isEmpty(edContent.getText().toString())) {
             map.put("detail", edContent.getText().toString());
         }
-        dataRepository.projectAdd(map, new RemotDataSource.getCallback() {
+        dataRepository.editProject(map, new RemotDataSource.getCallback() {
             @Override
             public void onFailure(String info) {
                 ViewLoading.dismiss(mContext);
@@ -256,12 +295,12 @@ detail	否	string	项目详情
             public void onSuccess(Object data) {
                 ViewLoading.dismiss(mContext);
                 StatusModel statusModel = (StatusModel) data;
-                if(statusModel.getCode()==1){
+                if (statusModel.getCode() == 1) {
+                    ToastUtils.showToast("更新成功");
                     EventBus.getDefault().post("4");
                     finish();
-                    ToastUtils.showToast("添加成功");
                 }else {
-                    ToastUtils.showToast("添加失败");
+                    ToastUtils.showToast(statusModel.getMsg());
                 }
 
             }
@@ -306,7 +345,7 @@ detail	否	string	项目详情
                                     } else {
                                         //添加凭证图片
 //                        selectPic();
-                                        PictureSelector.create(CreateProjectActivity.this)
+                                        PictureSelector.create(EditProjectActivity.this)
                                                 .openGallery(PictureMimeType.ofImage())
                                                 .selectionMode(PictureConfig.MULTIPLE)
                                                 .maxSelectNum(3)
@@ -467,13 +506,13 @@ detail	否	string	项目详情
                     ToastUtils.showToast("请选择关联人员");
                     return;
                 }
-                projectAdd();
+                editProject();
                 break;
 
         }
     }
 
-    private void showTimeOption(TextView textView,CallBackTime backTime) {
+    private void showTimeOption(TextView textView, CallBackTime backTime) {
         DatePicker picker1 = new DatePicker(this);
         picker1.setDividerRatio(WheelView.DividerConfig.FILL);
         picker1.setRangeEnd(2050, 10, 14);//控件最大所能显示的时间，即结束时间

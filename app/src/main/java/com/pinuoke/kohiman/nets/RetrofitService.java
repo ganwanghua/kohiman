@@ -7,6 +7,8 @@ import com.pinuoke.kohiman.model.LogModel;
 import com.pinuoke.kohiman.model.MyCustomerListModel;
 import com.pinuoke.kohiman.model.MyDataModel;
 import com.pinuoke.kohiman.model.MyProjectListModel;
+import com.pinuoke.kohiman.model.ProjectClientListModel;
+import com.pinuoke.kohiman.model.ProjectConfigModel;
 import com.pinuoke.kohiman.model.SeasListModel;
 import com.pinuoke.kohiman.model.StatusModel;
 import com.pinuoke.kohiman.model.UserInfoModel;
@@ -78,4 +80,27 @@ public interface RetrofitService {
     // 数据统计
     @POST("index.php")
     Observable<MyDataModel> myData(@QueryMap Map<String, String> queryMap);
+
+    //创建项目
+    @POST("index.php")
+    Observable<StatusModel> projectAdd(@QueryMap Map<String, String> queryMap);
+
+    //项目配置项
+    @POST("index.php")
+    Observable<ProjectConfigModel> projectConfig(@QueryMap Map<String, String> queryMap);
+
+   // 配置项-客户列表
+    @POST("index.php")
+    Observable<ProjectClientListModel> projectClientList(@QueryMap Map<String, String> queryMap);
+
+    //添加项目跟进
+    @POST("index.php")
+    Observable<StatusModel> projectFollowAdd(@QueryMap Map<String, String> queryMap);
+
+    //编辑项目
+    @POST("index.php")
+    Observable<StatusModel> editProject(@QueryMap Map<String, String> queryMap);
+
+    //项目详情
+
 }

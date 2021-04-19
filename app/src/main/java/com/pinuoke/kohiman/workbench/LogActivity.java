@@ -96,7 +96,6 @@ public class LogActivity extends BaseActivity {
     }
 
     private void log() {
-        ViewLoading.show(mContext);
         Map<String, String> map = new HashMap<>();
         map.put("s", "/sales/follow.index/my");
         map.put("token", FastData.getToken());
@@ -104,12 +103,12 @@ public class LogActivity extends BaseActivity {
         dataRepository.log(map, new RemotDataSource.getCallback() {
             @Override
             public void onFailure(String info) {
-                ViewLoading.dismiss(mContext);
+
             }
 
             @Override
             public void onSuccess(Object data) {
-                ViewLoading.dismiss(mContext);
+
                 LogModel logModel = (LogModel) data;
                 if (logModel.getCode() == 1) {
                     adapter.setData(logModel.getData().getList().getData());

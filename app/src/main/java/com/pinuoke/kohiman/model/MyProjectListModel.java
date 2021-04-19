@@ -1,5 +1,6 @@
 package com.pinuoke.kohiman.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class MyProjectListModel {
@@ -7,7 +8,7 @@ public class MyProjectListModel {
     /**
      * code : 1
      * msg : success
-     * data : {"list":{"total":1,"per_page":15,"current_page":1,"last_page":1,"data":[{"project_id":10222,"name":"11","category_id":10019,"detail":"","status_id":10007,"team_id":0,"start_time":"2021-04-07","end_time":"2021-04-18","plan_follow_time":{"text":"2021-04-13","value":1618243200},"follow_time":{"text":"","value":0},"create_user_id":10080,"is_emphasis":0,"enterprise_id":10002,"is_delete":0,"create_time":"2021-04-13 16:37:00","update_time":"2021-04-13 16:48:25","look_phone":null,"category":{"category_id":10019,"parent_id":10011,"name":"山西煤炭运销集团泰山隆安煤业有限公司","enterprise_id":10002,"sort":10,"is_delete":0,"create_time":"2021-03-27 19:04:31","update_time":"2021-03-27 19:04:31"},"client":[{"project_client_id":10296,"project_id":10222,"client_id":14742,"role_id":10008,"phone":"13434343444","add_user_id":10080,"enterprise_id":10002,"create_time":"2021-04-13 16:37:00","client":{"clue_id":14742,"name":"11","first_character":"","link_name":"11","gender":{"value":0,"text":"未知"},"age":0,"role_id":0,"source_id":0,"status_id":10014,"phone":"13777777777","phone1":"","email":"","wechat":"","qq":"","province_id":0,"city_id":0,"region_id":0,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618224264,"user_id":0,"last_user_id":0,"is_follow":1,"plan_follow_time":{"text":"2021-04-12","value":1618156800},"follow_time":{"text":"2021-04-12 18:45:02","value":1618224302},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-12 18:44:24","update_time":"2021-04-12 18:45:02","region":{"province":"","city":"","region":""},"noFollowDays":1},"role":{"clue_role_id":10008,"name":"普通人","enterprise_id":10002,"sort":100,"status":1,"is_delete":0,"create_time":"2020-02-08 18:40:17","update_time":"2020-02-08 18:40:50"}}],"status":{"project_status_id":10007,"name":"施工阶段","enterprise_id":10002,"sort":100,"status":1,"must_plan_follow_time":1,"is_delete":0,"create_time":"2020-03-04 15:01:38","update_time":"2020-03-04 15:01:38"},"user":[{"project_user_id":10315,"project_id":10222,"user_id":10079,"add_user_id":10080,"look_follow":0,"look_phone":0,"enterprise_id":10002,"create_time":"2021-04-13 16:37:00","user":{"user_id":10079,"user_name":"taosheng","password":"97db5dc51a3545946f91d1c6c30e6c6d","parent_user_id":0,"department_id":10012,"position_id":10007,"real_name":"陶胜","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"15399625899","birthday":0,"remark":"","last_login_time":"1970-01-01 08:00:00","is_super":0,"enterprise_id":10002,"status":1}}],"attachment":[],"create_user":null,"noFollowDays":0}]}}
+     * data : {"list":{"total":1,"per_page":15,"current_page":1,"last_page":1,"data":[{"project_id":10222,"name":"测试项目","category_id":10011,"detail":"测试测试测试测试测试","status_id":10007,"team_id":0,"start_time":"2021-03-01","end_time":"","plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"create_user_id":10082,"is_emphasis":1,"enterprise_id":10002,"is_delete":0,"create_time":"2021-04-16 14:50:18","update_time":"2021-04-16 14:50:18","look_phone":null,"category":{"category_id":10011,"parent_id":0,"name":"工程项目","enterprise_id":10002,"sort":1,"is_delete":0,"create_time":"2020-03-23 16:59:04","update_time":"2020-03-23 16:59:04"},"client":[{"project_client_id":10296,"project_id":10222,"client_id":14748,"role_id":10007,"phone":"13111111111","add_user_id":10082,"enterprise_id":10002,"create_time":"2021-04-16 14:50:18","client":{"clue_id":14748,"name":"007","first_character":"","link_name":"008","gender":{"value":1,"text":"男"},"age":24,"role_id":10008,"source_id":10019,"status_id":10012,"phone":"13111111111","phone1":"","email":"","wechat":"","qq":"","province_id":1,"city_id":0,"region_id":0,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618486489,"user_id":10082,"last_user_id":0,"is_follow":0,"plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-15 19:34:49","update_time":"2021-04-15 19:34:49","region":{"province":"北京市","city":"","region":""},"noFollowDays":"--"},"role":null}],"status":{"project_status_id":10007,"name":"施工阶段","enterprise_id":10002,"sort":100,"status":1,"must_plan_follow_time":1,"is_delete":0,"create_time":"2020-03-04 15:01:38","update_time":"2020-03-04 15:01:38"},"user":[{"project_user_id":10315,"project_id":10222,"user_id":10073,"add_user_id":10082,"look_follow":1,"look_phone":1,"enterprise_id":10002,"create_time":"2021-04-16 14:50:18","user":{"user_id":10073,"user_name":"wangqi","password":"97db5dc51a3545946f91d1c6c30e6c6d","parent_user_id":0,"department_id":10026,"position_id":10007,"real_name":"王琦","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"15890681360","birthday":0,"remark":"","last_login_time":"2021-03-31 11:03:22","is_super":0,"enterprise_id":10002,"status":1}}],"attachment":[],"create_user":null,"noFollowDays":"--"}]}}
      */
 
     private int code;
@@ -40,7 +41,7 @@ public class MyProjectListModel {
 
     public static class DataBeanX {
         /**
-         * list : {"total":1,"per_page":15,"current_page":1,"last_page":1,"data":[{"project_id":10222,"name":"11","category_id":10019,"detail":"","status_id":10007,"team_id":0,"start_time":"2021-04-07","end_time":"2021-04-18","plan_follow_time":{"text":"2021-04-13","value":1618243200},"follow_time":{"text":"","value":0},"create_user_id":10080,"is_emphasis":0,"enterprise_id":10002,"is_delete":0,"create_time":"2021-04-13 16:37:00","update_time":"2021-04-13 16:48:25","look_phone":null,"category":{"category_id":10019,"parent_id":10011,"name":"山西煤炭运销集团泰山隆安煤业有限公司","enterprise_id":10002,"sort":10,"is_delete":0,"create_time":"2021-03-27 19:04:31","update_time":"2021-03-27 19:04:31"},"client":[{"project_client_id":10296,"project_id":10222,"client_id":14742,"role_id":10008,"phone":"13434343444","add_user_id":10080,"enterprise_id":10002,"create_time":"2021-04-13 16:37:00","client":{"clue_id":14742,"name":"11","first_character":"","link_name":"11","gender":{"value":0,"text":"未知"},"age":0,"role_id":0,"source_id":0,"status_id":10014,"phone":"13777777777","phone1":"","email":"","wechat":"","qq":"","province_id":0,"city_id":0,"region_id":0,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618224264,"user_id":0,"last_user_id":0,"is_follow":1,"plan_follow_time":{"text":"2021-04-12","value":1618156800},"follow_time":{"text":"2021-04-12 18:45:02","value":1618224302},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-12 18:44:24","update_time":"2021-04-12 18:45:02","region":{"province":"","city":"","region":""},"noFollowDays":1},"role":{"clue_role_id":10008,"name":"普通人","enterprise_id":10002,"sort":100,"status":1,"is_delete":0,"create_time":"2020-02-08 18:40:17","update_time":"2020-02-08 18:40:50"}}],"status":{"project_status_id":10007,"name":"施工阶段","enterprise_id":10002,"sort":100,"status":1,"must_plan_follow_time":1,"is_delete":0,"create_time":"2020-03-04 15:01:38","update_time":"2020-03-04 15:01:38"},"user":[{"project_user_id":10315,"project_id":10222,"user_id":10079,"add_user_id":10080,"look_follow":0,"look_phone":0,"enterprise_id":10002,"create_time":"2021-04-13 16:37:00","user":{"user_id":10079,"user_name":"taosheng","password":"97db5dc51a3545946f91d1c6c30e6c6d","parent_user_id":0,"department_id":10012,"position_id":10007,"real_name":"陶胜","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"15399625899","birthday":0,"remark":"","last_login_time":"1970-01-01 08:00:00","is_super":0,"enterprise_id":10002,"status":1}}],"attachment":[],"create_user":null,"noFollowDays":0}]}
+         * list : {"total":1,"per_page":15,"current_page":1,"last_page":1,"data":[{"project_id":10222,"name":"测试项目","category_id":10011,"detail":"测试测试测试测试测试","status_id":10007,"team_id":0,"start_time":"2021-03-01","end_time":"","plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"create_user_id":10082,"is_emphasis":1,"enterprise_id":10002,"is_delete":0,"create_time":"2021-04-16 14:50:18","update_time":"2021-04-16 14:50:18","look_phone":null,"category":{"category_id":10011,"parent_id":0,"name":"工程项目","enterprise_id":10002,"sort":1,"is_delete":0,"create_time":"2020-03-23 16:59:04","update_time":"2020-03-23 16:59:04"},"client":[{"project_client_id":10296,"project_id":10222,"client_id":14748,"role_id":10007,"phone":"13111111111","add_user_id":10082,"enterprise_id":10002,"create_time":"2021-04-16 14:50:18","client":{"clue_id":14748,"name":"007","first_character":"","link_name":"008","gender":{"value":1,"text":"男"},"age":24,"role_id":10008,"source_id":10019,"status_id":10012,"phone":"13111111111","phone1":"","email":"","wechat":"","qq":"","province_id":1,"city_id":0,"region_id":0,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618486489,"user_id":10082,"last_user_id":0,"is_follow":0,"plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-15 19:34:49","update_time":"2021-04-15 19:34:49","region":{"province":"北京市","city":"","region":""},"noFollowDays":"--"},"role":null}],"status":{"project_status_id":10007,"name":"施工阶段","enterprise_id":10002,"sort":100,"status":1,"must_plan_follow_time":1,"is_delete":0,"create_time":"2020-03-04 15:01:38","update_time":"2020-03-04 15:01:38"},"user":[{"project_user_id":10315,"project_id":10222,"user_id":10073,"add_user_id":10082,"look_follow":1,"look_phone":1,"enterprise_id":10002,"create_time":"2021-04-16 14:50:18","user":{"user_id":10073,"user_name":"wangqi","password":"97db5dc51a3545946f91d1c6c30e6c6d","parent_user_id":0,"department_id":10026,"position_id":10007,"real_name":"王琦","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"15890681360","birthday":0,"remark":"","last_login_time":"2021-03-31 11:03:22","is_super":0,"enterprise_id":10002,"status":1}}],"attachment":[],"create_user":null,"noFollowDays":"--"}]}
          */
 
         private ListBean list;
@@ -59,7 +60,7 @@ public class MyProjectListModel {
              * per_page : 15
              * current_page : 1
              * last_page : 1
-             * data : [{"project_id":10222,"name":"11","category_id":10019,"detail":"","status_id":10007,"team_id":0,"start_time":"2021-04-07","end_time":"2021-04-18","plan_follow_time":{"text":"2021-04-13","value":1618243200},"follow_time":{"text":"","value":0},"create_user_id":10080,"is_emphasis":0,"enterprise_id":10002,"is_delete":0,"create_time":"2021-04-13 16:37:00","update_time":"2021-04-13 16:48:25","look_phone":null,"category":{"category_id":10019,"parent_id":10011,"name":"山西煤炭运销集团泰山隆安煤业有限公司","enterprise_id":10002,"sort":10,"is_delete":0,"create_time":"2021-03-27 19:04:31","update_time":"2021-03-27 19:04:31"},"client":[{"project_client_id":10296,"project_id":10222,"client_id":14742,"role_id":10008,"phone":"13434343444","add_user_id":10080,"enterprise_id":10002,"create_time":"2021-04-13 16:37:00","client":{"clue_id":14742,"name":"11","first_character":"","link_name":"11","gender":{"value":0,"text":"未知"},"age":0,"role_id":0,"source_id":0,"status_id":10014,"phone":"13777777777","phone1":"","email":"","wechat":"","qq":"","province_id":0,"city_id":0,"region_id":0,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618224264,"user_id":0,"last_user_id":0,"is_follow":1,"plan_follow_time":{"text":"2021-04-12","value":1618156800},"follow_time":{"text":"2021-04-12 18:45:02","value":1618224302},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-12 18:44:24","update_time":"2021-04-12 18:45:02","region":{"province":"","city":"","region":""},"noFollowDays":1},"role":{"clue_role_id":10008,"name":"普通人","enterprise_id":10002,"sort":100,"status":1,"is_delete":0,"create_time":"2020-02-08 18:40:17","update_time":"2020-02-08 18:40:50"}}],"status":{"project_status_id":10007,"name":"施工阶段","enterprise_id":10002,"sort":100,"status":1,"must_plan_follow_time":1,"is_delete":0,"create_time":"2020-03-04 15:01:38","update_time":"2020-03-04 15:01:38"},"user":[{"project_user_id":10315,"project_id":10222,"user_id":10079,"add_user_id":10080,"look_follow":0,"look_phone":0,"enterprise_id":10002,"create_time":"2021-04-13 16:37:00","user":{"user_id":10079,"user_name":"taosheng","password":"97db5dc51a3545946f91d1c6c30e6c6d","parent_user_id":0,"department_id":10012,"position_id":10007,"real_name":"陶胜","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"15399625899","birthday":0,"remark":"","last_login_time":"1970-01-01 08:00:00","is_super":0,"enterprise_id":10002,"status":1}}],"attachment":[],"create_user":null,"noFollowDays":0}]
+             * data : [{"project_id":10222,"name":"测试项目","category_id":10011,"detail":"测试测试测试测试测试","status_id":10007,"team_id":0,"start_time":"2021-03-01","end_time":"","plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"create_user_id":10082,"is_emphasis":1,"enterprise_id":10002,"is_delete":0,"create_time":"2021-04-16 14:50:18","update_time":"2021-04-16 14:50:18","look_phone":null,"category":{"category_id":10011,"parent_id":0,"name":"工程项目","enterprise_id":10002,"sort":1,"is_delete":0,"create_time":"2020-03-23 16:59:04","update_time":"2020-03-23 16:59:04"},"client":[{"project_client_id":10296,"project_id":10222,"client_id":14748,"role_id":10007,"phone":"13111111111","add_user_id":10082,"enterprise_id":10002,"create_time":"2021-04-16 14:50:18","client":{"clue_id":14748,"name":"007","first_character":"","link_name":"008","gender":{"value":1,"text":"男"},"age":24,"role_id":10008,"source_id":10019,"status_id":10012,"phone":"13111111111","phone1":"","email":"","wechat":"","qq":"","province_id":1,"city_id":0,"region_id":0,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618486489,"user_id":10082,"last_user_id":0,"is_follow":0,"plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-15 19:34:49","update_time":"2021-04-15 19:34:49","region":{"province":"北京市","city":"","region":""},"noFollowDays":"--"},"role":null}],"status":{"project_status_id":10007,"name":"施工阶段","enterprise_id":10002,"sort":100,"status":1,"must_plan_follow_time":1,"is_delete":0,"create_time":"2020-03-04 15:01:38","update_time":"2020-03-04 15:01:38"},"user":[{"project_user_id":10315,"project_id":10222,"user_id":10073,"add_user_id":10082,"look_follow":1,"look_phone":1,"enterprise_id":10002,"create_time":"2021-04-16 14:50:18","user":{"user_id":10073,"user_name":"wangqi","password":"97db5dc51a3545946f91d1c6c30e6c6d","parent_user_id":0,"department_id":10026,"position_id":10007,"real_name":"王琦","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"15890681360","birthday":0,"remark":"","last_login_time":"2021-03-31 11:03:22","is_super":0,"enterprise_id":10002,"status":1}}],"attachment":[],"create_user":null,"noFollowDays":"--"}]
              */
 
             private int total;
@@ -108,32 +109,32 @@ public class MyProjectListModel {
                 this.data = data;
             }
 
-            public static class DataBean {
+            public static class DataBean  implements Serializable {
                 /**
                  * project_id : 10222
-                 * name : 11
-                 * category_id : 10019
-                 * detail :
+                 * name : 测试项目
+                 * category_id : 10011
+                 * detail : 测试测试测试测试测试
                  * status_id : 10007
                  * team_id : 0
-                 * start_time : 2021-04-07
-                 * end_time : 2021-04-18
-                 * plan_follow_time : {"text":"2021-04-13","value":1618243200}
+                 * start_time : 2021-03-01
+                 * end_time :
+                 * plan_follow_time : {"text":"","value":0}
                  * follow_time : {"text":"","value":0}
-                 * create_user_id : 10080
-                 * is_emphasis : 0
+                 * create_user_id : 10082
+                 * is_emphasis : 1
                  * enterprise_id : 10002
                  * is_delete : 0
-                 * create_time : 2021-04-13 16:37:00
-                 * update_time : 2021-04-13 16:48:25
+                 * create_time : 2021-04-16 14:50:18
+                 * update_time : 2021-04-16 14:50:18
                  * look_phone : null
-                 * category : {"category_id":10019,"parent_id":10011,"name":"山西煤炭运销集团泰山隆安煤业有限公司","enterprise_id":10002,"sort":10,"is_delete":0,"create_time":"2021-03-27 19:04:31","update_time":"2021-03-27 19:04:31"}
-                 * client : [{"project_client_id":10296,"project_id":10222,"client_id":14742,"role_id":10008,"phone":"13434343444","add_user_id":10080,"enterprise_id":10002,"create_time":"2021-04-13 16:37:00","client":{"clue_id":14742,"name":"11","first_character":"","link_name":"11","gender":{"value":0,"text":"未知"},"age":0,"role_id":0,"source_id":0,"status_id":10014,"phone":"13777777777","phone1":"","email":"","wechat":"","qq":"","province_id":0,"city_id":0,"region_id":0,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618224264,"user_id":0,"last_user_id":0,"is_follow":1,"plan_follow_time":{"text":"2021-04-12","value":1618156800},"follow_time":{"text":"2021-04-12 18:45:02","value":1618224302},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-12 18:44:24","update_time":"2021-04-12 18:45:02","region":{"province":"","city":"","region":""},"noFollowDays":1},"role":{"clue_role_id":10008,"name":"普通人","enterprise_id":10002,"sort":100,"status":1,"is_delete":0,"create_time":"2020-02-08 18:40:17","update_time":"2020-02-08 18:40:50"}}]
+                 * category : {"category_id":10011,"parent_id":0,"name":"工程项目","enterprise_id":10002,"sort":1,"is_delete":0,"create_time":"2020-03-23 16:59:04","update_time":"2020-03-23 16:59:04"}
+                 * client : [{"project_client_id":10296,"project_id":10222,"client_id":14748,"role_id":10007,"phone":"13111111111","add_user_id":10082,"enterprise_id":10002,"create_time":"2021-04-16 14:50:18","client":{"clue_id":14748,"name":"007","first_character":"","link_name":"008","gender":{"value":1,"text":"男"},"age":24,"role_id":10008,"source_id":10019,"status_id":10012,"phone":"13111111111","phone1":"","email":"","wechat":"","qq":"","province_id":1,"city_id":0,"region_id":0,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618486489,"user_id":10082,"last_user_id":0,"is_follow":0,"plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-15 19:34:49","update_time":"2021-04-15 19:34:49","region":{"province":"北京市","city":"","region":""},"noFollowDays":"--"},"role":null}]
                  * status : {"project_status_id":10007,"name":"施工阶段","enterprise_id":10002,"sort":100,"status":1,"must_plan_follow_time":1,"is_delete":0,"create_time":"2020-03-04 15:01:38","update_time":"2020-03-04 15:01:38"}
-                 * user : [{"project_user_id":10315,"project_id":10222,"user_id":10079,"add_user_id":10080,"look_follow":0,"look_phone":0,"enterprise_id":10002,"create_time":"2021-04-13 16:37:00","user":{"user_id":10079,"user_name":"taosheng","password":"97db5dc51a3545946f91d1c6c30e6c6d","parent_user_id":0,"department_id":10012,"position_id":10007,"real_name":"陶胜","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"15399625899","birthday":0,"remark":"","last_login_time":"1970-01-01 08:00:00","is_super":0,"enterprise_id":10002,"status":1}}]
+                 * user : [{"project_user_id":10315,"project_id":10222,"user_id":10073,"add_user_id":10082,"look_follow":1,"look_phone":1,"enterprise_id":10002,"create_time":"2021-04-16 14:50:18","user":{"user_id":10073,"user_name":"wangqi","password":"97db5dc51a3545946f91d1c6c30e6c6d","parent_user_id":0,"department_id":10026,"position_id":10007,"real_name":"王琦","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"15890681360","birthday":0,"remark":"","last_login_time":"2021-03-31 11:03:22","is_super":0,"enterprise_id":10002,"status":1}}]
                  * attachment : []
                  * create_user : null
-                 * noFollowDays : 0
+                 * noFollowDays : --
                  */
 
                 private int project_id;
@@ -156,7 +157,7 @@ public class MyProjectListModel {
                 private CategoryBean category;
                 private StatusBean status;
                 private Object create_user;
-                private int noFollowDays;
+                private String noFollowDays;
                 private List<ClientBeanX> client;
                 private List<UserBeanX> user;
                 private List<?> attachment;
@@ -321,11 +322,11 @@ public class MyProjectListModel {
                     this.create_user = create_user;
                 }
 
-                public int getNoFollowDays() {
+                public String getNoFollowDays() {
                     return noFollowDays;
                 }
 
-                public void setNoFollowDays(int noFollowDays) {
+                public void setNoFollowDays(String noFollowDays) {
                     this.noFollowDays = noFollowDays;
                 }
 
@@ -353,33 +354,7 @@ public class MyProjectListModel {
                     this.attachment = attachment;
                 }
 
-                public static class PlanFollowTimeBean {
-                    /**
-                     * text : 2021-04-13
-                     * value : 1618243200
-                     */
-
-                    private String text;
-                    private int value;
-
-                    public String getText() {
-                        return text;
-                    }
-
-                    public void setText(String text) {
-                        this.text = text;
-                    }
-
-                    public int getValue() {
-                        return value;
-                    }
-
-                    public void setValue(int value) {
-                        this.value = value;
-                    }
-                }
-
-                public static class FollowTimeBean {
+                public static class PlanFollowTimeBean implements Serializable{
                     /**
                      * text :
                      * value : 0
@@ -405,16 +380,42 @@ public class MyProjectListModel {
                     }
                 }
 
-                public static class CategoryBean {
+                public static class FollowTimeBean implements Serializable{
                     /**
-                     * category_id : 10019
-                     * parent_id : 10011
-                     * name : 山西煤炭运销集团泰山隆安煤业有限公司
+                     * text :
+                     * value : 0
+                     */
+
+                    private String text;
+                    private int value;
+
+                    public String getText() {
+                        return text;
+                    }
+
+                    public void setText(String text) {
+                        this.text = text;
+                    }
+
+                    public int getValue() {
+                        return value;
+                    }
+
+                    public void setValue(int value) {
+                        this.value = value;
+                    }
+                }
+
+                public static class CategoryBean implements Serializable{
+                    /**
+                     * category_id : 10011
+                     * parent_id : 0
+                     * name : 工程项目
                      * enterprise_id : 10002
-                     * sort : 10
+                     * sort : 1
                      * is_delete : 0
-                     * create_time : 2021-03-27 19:04:31
-                     * update_time : 2021-03-27 19:04:31
+                     * create_time : 2020-03-23 16:59:04
+                     * update_time : 2020-03-23 16:59:04
                      */
 
                     private int category_id;
@@ -491,7 +492,7 @@ public class MyProjectListModel {
                     }
                 }
 
-                public static class StatusBean {
+                public static class StatusBean implements Serializable {
                     /**
                      * project_status_id : 10007
                      * name : 施工阶段
@@ -587,18 +588,18 @@ public class MyProjectListModel {
                     }
                 }
 
-                public static class ClientBeanX {
+                public static class ClientBeanX implements Serializable{
                     /**
                      * project_client_id : 10296
                      * project_id : 10222
-                     * client_id : 14742
-                     * role_id : 10008
-                     * phone : 13434343444
-                     * add_user_id : 10080
+                     * client_id : 14748
+                     * role_id : 10007
+                     * phone : 13111111111
+                     * add_user_id : 10082
                      * enterprise_id : 10002
-                     * create_time : 2021-04-13 16:37:00
-                     * client : {"clue_id":14742,"name":"11","first_character":"","link_name":"11","gender":{"value":0,"text":"未知"},"age":0,"role_id":0,"source_id":0,"status_id":10014,"phone":"13777777777","phone1":"","email":"","wechat":"","qq":"","province_id":0,"city_id":0,"region_id":0,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618224264,"user_id":0,"last_user_id":0,"is_follow":1,"plan_follow_time":{"text":"2021-04-12","value":1618156800},"follow_time":{"text":"2021-04-12 18:45:02","value":1618224302},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-12 18:44:24","update_time":"2021-04-12 18:45:02","region":{"province":"","city":"","region":""},"noFollowDays":1}
-                     * role : {"clue_role_id":10008,"name":"普通人","enterprise_id":10002,"sort":100,"status":1,"is_delete":0,"create_time":"2020-02-08 18:40:17","update_time":"2020-02-08 18:40:50"}
+                     * create_time : 2021-04-16 14:50:18
+                     * client : {"clue_id":14748,"name":"007","first_character":"","link_name":"008","gender":{"value":1,"text":"男"},"age":24,"role_id":10008,"source_id":10019,"status_id":10012,"phone":"13111111111","phone1":"","email":"","wechat":"","qq":"","province_id":1,"city_id":0,"region_id":0,"detail":"","remark":"","extra":"","allot_user_id":0,"allot_time":1618486489,"user_id":10082,"last_user_id":0,"is_follow":0,"plan_follow_time":{"text":"","value":0},"follow_time":{"text":"","value":0},"follow_user_id":0,"entry_seas_count":0,"entry_seas_time":{"text":"","value":0},"is_client":1,"is_handle":1,"enterprise_id":10002,"mini_user_id":0,"is_delete":0,"create_time":"2021-04-15 19:34:49","update_time":"2021-04-15 19:34:49","region":{"province":"北京市","city":"","region":""},"noFollowDays":"--"}
+                     * role : null
                      */
 
                     private int project_client_id;
@@ -692,35 +693,122 @@ public class MyProjectListModel {
                         this.role = role;
                     }
 
-                    public static class ClientBean {
+                    public static class RoleBean implements Serializable{
+
                         /**
-                         * clue_id : 14742
-                         * name : 11
+                         * clue_role_id : 10008
+                         * name : 普通人
+                         * enterprise_id : 10002
+                         * sort : 100
+                         * status : 1
+                         * is_delete : 0
+                         * create_time : 2020-02-08 18:40:17
+                         * update_time : 2020-02-08 18:40:50
+                         */
+
+                        private int clue_role_id;
+                        private String name;
+                        private int enterprise_id;
+                        private int sort;
+                        private int status;
+                        private int is_delete;
+                        private String create_time;
+                        private String update_time;
+
+                        public int getClue_role_id() {
+                            return clue_role_id;
+                        }
+
+                        public void setClue_role_id(int clue_role_id) {
+                            this.clue_role_id = clue_role_id;
+                        }
+
+                        public String getName() {
+                            return name;
+                        }
+
+                        public void setName(String name) {
+                            this.name = name;
+                        }
+
+                        public int getEnterprise_id() {
+                            return enterprise_id;
+                        }
+
+                        public void setEnterprise_id(int enterprise_id) {
+                            this.enterprise_id = enterprise_id;
+                        }
+
+                        public int getSort() {
+                            return sort;
+                        }
+
+                        public void setSort(int sort) {
+                            this.sort = sort;
+                        }
+
+                        public int getStatus() {
+                            return status;
+                        }
+
+                        public void setStatus(int status) {
+                            this.status = status;
+                        }
+
+                        public int getIs_delete() {
+                            return is_delete;
+                        }
+
+                        public void setIs_delete(int is_delete) {
+                            this.is_delete = is_delete;
+                        }
+
+                        public String getCreate_time() {
+                            return create_time;
+                        }
+
+                        public void setCreate_time(String create_time) {
+                            this.create_time = create_time;
+                        }
+
+                        public String getUpdate_time() {
+                            return update_time;
+                        }
+
+                        public void setUpdate_time(String update_time) {
+                            this.update_time = update_time;
+                        }
+                    }
+
+                    public static class ClientBean implements Serializable{
+                        /**
+                         * clue_id : 14748
+                         * name : 007
                          * first_character :
-                         * link_name : 11
-                         * gender : {"value":0,"text":"未知"}
-                         * age : 0
-                         * role_id : 0
-                         * source_id : 0
-                         * status_id : 10014
-                         * phone : 13777777777
+                         * link_name : 008
+                         * gender : {"value":1,"text":"男"}
+                         * age : 24
+                         * role_id : 10008
+                         * source_id : 10019
+                         * status_id : 10012
+                         * phone : 13111111111
                          * phone1 :
                          * email :
                          * wechat :
                          * qq :
-                         * province_id : 0
+                         * province_id : 1
                          * city_id : 0
                          * region_id : 0
                          * detail :
                          * remark :
                          * extra :
                          * allot_user_id : 0
-                         * allot_time : 1618224264
-                         * user_id : 0
+                         * allot_time : 1618486489
+                         * user_id : 10082
                          * last_user_id : 0
-                         * is_follow : 1
-                         * plan_follow_time : {"text":"2021-04-12","value":1618156800}
-                         * follow_time : {"text":"2021-04-12 18:45:02","value":1618224302}
+                         * is_follow : 0
+                         * plan_follow_time : {"text":"","value":0}
+                         * follow_time : {"text":"","value":0}
                          * follow_user_id : 0
                          * entry_seas_count : 0
                          * entry_seas_time : {"text":"","value":0}
@@ -729,10 +817,10 @@ public class MyProjectListModel {
                          * enterprise_id : 10002
                          * mini_user_id : 0
                          * is_delete : 0
-                         * create_time : 2021-04-12 18:44:24
-                         * update_time : 2021-04-12 18:45:02
-                         * region : {"province":"","city":"","region":""}
-                         * noFollowDays : 1
+                         * create_time : 2021-04-15 19:34:49
+                         * update_time : 2021-04-15 19:34:49
+                         * region : {"province":"北京市","city":"","region":""}
+                         * noFollowDays : --
                          */
 
                         private int clue_id;
@@ -773,7 +861,7 @@ public class MyProjectListModel {
                         private String create_time;
                         private String update_time;
                         private RegionBean region;
-                        private int noFollowDays;
+                        private String noFollowDays;
 
                         public int getClue_id() {
                             return clue_id;
@@ -1079,18 +1167,18 @@ public class MyProjectListModel {
                             this.region = region;
                         }
 
-                        public int getNoFollowDays() {
+                        public String getNoFollowDays() {
                             return noFollowDays;
                         }
 
-                        public void setNoFollowDays(int noFollowDays) {
+                        public void setNoFollowDays(String noFollowDays) {
                             this.noFollowDays = noFollowDays;
                         }
 
-                        public static class GenderBean {
+                        public static class GenderBean implements Serializable {
                             /**
-                             * value : 0
-                             * text : 未知
+                             * value : 1
+                             * text : 男
                              */
 
                             private int value;
@@ -1113,59 +1201,7 @@ public class MyProjectListModel {
                             }
                         }
 
-                        public static class PlanFollowTimeBeanX {
-                            /**
-                             * text : 2021-04-12
-                             * value : 1618156800
-                             */
-
-                            private String text;
-                            private int value;
-
-                            public String getText() {
-                                return text;
-                            }
-
-                            public void setText(String text) {
-                                this.text = text;
-                            }
-
-                            public int getValue() {
-                                return value;
-                            }
-
-                            public void setValue(int value) {
-                                this.value = value;
-                            }
-                        }
-
-                        public static class FollowTimeBeanX {
-                            /**
-                             * text : 2021-04-12 18:45:02
-                             * value : 1618224302
-                             */
-
-                            private String text;
-                            private int value;
-
-                            public String getText() {
-                                return text;
-                            }
-
-                            public void setText(String text) {
-                                this.text = text;
-                            }
-
-                            public int getValue() {
-                                return value;
-                            }
-
-                            public void setValue(int value) {
-                                this.value = value;
-                            }
-                        }
-
-                        public static class EntrySeasTimeBean {
+                        public static class PlanFollowTimeBeanX implements Serializable{
                             /**
                              * text :
                              * value : 0
@@ -1191,9 +1227,61 @@ public class MyProjectListModel {
                             }
                         }
 
-                        public static class RegionBean {
+                        public static class FollowTimeBeanX implements Serializable{
                             /**
-                             * province :
+                             * text :
+                             * value : 0
+                             */
+
+                            private String text;
+                            private int value;
+
+                            public String getText() {
+                                return text;
+                            }
+
+                            public void setText(String text) {
+                                this.text = text;
+                            }
+
+                            public int getValue() {
+                                return value;
+                            }
+
+                            public void setValue(int value) {
+                                this.value = value;
+                            }
+                        }
+
+                        public static class EntrySeasTimeBean implements Serializable{
+                            /**
+                             * text :
+                             * value : 0
+                             */
+
+                            private String text;
+                            private int value;
+
+                            public String getText() {
+                                return text;
+                            }
+
+                            public void setText(String text) {
+                                this.text = text;
+                            }
+
+                            public int getValue() {
+                                return value;
+                            }
+
+                            public void setValue(int value) {
+                                this.value = value;
+                            }
+                        }
+
+                        public static class RegionBean implements Serializable {
+                            /**
+                             * province : 北京市
                              * city :
                              * region :
                              */
@@ -1227,105 +1315,19 @@ public class MyProjectListModel {
                             }
                         }
                     }
-
-                    public static class RoleBean {
-                        /**
-                         * clue_role_id : 10008
-                         * name : 普通人
-                         * enterprise_id : 10002
-                         * sort : 100
-                         * status : 1
-                         * is_delete : 0
-                         * create_time : 2020-02-08 18:40:17
-                         * update_time : 2020-02-08 18:40:50
-                         */
-
-                        private int clue_role_id;
-                        private String name;
-                        private int enterprise_id;
-                        private int sort;
-                        private int status;
-                        private int is_delete;
-                        private String create_time;
-                        private String update_time;
-
-                        public int getClue_role_id() {
-                            return clue_role_id;
-                        }
-
-                        public void setClue_role_id(int clue_role_id) {
-                            this.clue_role_id = clue_role_id;
-                        }
-
-                        public String getName() {
-                            return name;
-                        }
-
-                        public void setName(String name) {
-                            this.name = name;
-                        }
-
-                        public int getEnterprise_id() {
-                            return enterprise_id;
-                        }
-
-                        public void setEnterprise_id(int enterprise_id) {
-                            this.enterprise_id = enterprise_id;
-                        }
-
-                        public int getSort() {
-                            return sort;
-                        }
-
-                        public void setSort(int sort) {
-                            this.sort = sort;
-                        }
-
-                        public int getStatus() {
-                            return status;
-                        }
-
-                        public void setStatus(int status) {
-                            this.status = status;
-                        }
-
-                        public int getIs_delete() {
-                            return is_delete;
-                        }
-
-                        public void setIs_delete(int is_delete) {
-                            this.is_delete = is_delete;
-                        }
-
-                        public String getCreate_time() {
-                            return create_time;
-                        }
-
-                        public void setCreate_time(String create_time) {
-                            this.create_time = create_time;
-                        }
-
-                        public String getUpdate_time() {
-                            return update_time;
-                        }
-
-                        public void setUpdate_time(String update_time) {
-                            this.update_time = update_time;
-                        }
-                    }
                 }
 
-                public static class UserBeanX {
+                public static class UserBeanX implements Serializable {
                     /**
                      * project_user_id : 10315
                      * project_id : 10222
-                     * user_id : 10079
-                     * add_user_id : 10080
-                     * look_follow : 0
-                     * look_phone : 0
+                     * user_id : 10073
+                     * add_user_id : 10082
+                     * look_follow : 1
+                     * look_phone : 1
                      * enterprise_id : 10002
-                     * create_time : 2021-04-13 16:37:00
-                     * user : {"user_id":10079,"user_name":"taosheng","password":"97db5dc51a3545946f91d1c6c30e6c6d","parent_user_id":0,"department_id":10012,"position_id":10007,"real_name":"陶胜","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"15399625899","birthday":0,"remark":"","last_login_time":"1970-01-01 08:00:00","is_super":0,"enterprise_id":10002,"status":1}
+                     * create_time : 2021-04-16 14:50:18
+                     * user : {"user_id":10073,"user_name":"wangqi","password":"97db5dc51a3545946f91d1c6c30e6c6d","parent_user_id":0,"department_id":10026,"position_id":10007,"real_name":"王琦","avatar_url":"","gender":{"value":0,"text":"未知"},"mobile":"15890681360","birthday":0,"remark":"","last_login_time":"2021-03-31 11:03:22","is_super":0,"enterprise_id":10002,"status":1}
                      */
 
                     private int project_user_id;
@@ -1410,21 +1412,21 @@ public class MyProjectListModel {
                         this.user = user;
                     }
 
-                    public static class UserBean {
+                    public static class UserBean implements Serializable{
                         /**
-                         * user_id : 10079
-                         * user_name : taosheng
+                         * user_id : 10073
+                         * user_name : wangqi
                          * password : 97db5dc51a3545946f91d1c6c30e6c6d
                          * parent_user_id : 0
-                         * department_id : 10012
+                         * department_id : 10026
                          * position_id : 10007
-                         * real_name : 陶胜
+                         * real_name : 王琦
                          * avatar_url :
                          * gender : {"value":0,"text":"未知"}
-                         * mobile : 15399625899
+                         * mobile : 15890681360
                          * birthday : 0
                          * remark :
-                         * last_login_time : 1970-01-01 08:00:00
+                         * last_login_time : 2021-03-31 11:03:22
                          * is_super : 0
                          * enterprise_id : 10002
                          * status : 1
@@ -1575,7 +1577,7 @@ public class MyProjectListModel {
                             this.status = status;
                         }
 
-                        public static class GenderBeanX {
+                        public static class GenderBeanX implements Serializable{
                             /**
                              * value : 0
                              * text : 未知
