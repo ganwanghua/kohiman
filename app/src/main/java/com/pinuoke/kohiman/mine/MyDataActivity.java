@@ -92,9 +92,9 @@ public class MyDataActivity extends BaseActivity {
                 ViewLoading.dismiss(mContext);
                 MyDataModel myDataModel = (MyDataModel) data;
                 if (myDataModel.getCode() == 1) {
-                    tvNum.setText(myDataModel.getData().getTeam().getTotal() + "");
-                    tvNum1.setText(myDataModel.getData().getTeam().getFollow() + "");
-                    tvNum2.setText(myDataModel.getData().getTeam().getFinish() + "");
+                    tvNum.setText(myDataModel.getData().getMy().getTotal() + "");
+                    tvNum1.setText(myDataModel.getData().getMy().getFollow() + "");
+                    tvNum2.setText(myDataModel.getData().getMy().getFinish() + "");
 
                     tvTotal.setText(myDataModel.getData().getMy().getTotal() + "");
                     tvFinish.setText(myDataModel.getData().getMy().getFinish() + "");

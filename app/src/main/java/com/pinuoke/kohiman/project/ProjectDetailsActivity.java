@@ -2,6 +2,7 @@ package com.pinuoke.kohiman.project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -101,9 +102,29 @@ public class ProjectDetailsActivity extends BaseActivity {
                 if (projectDetailModel.getCode() == 1) {
                     tvName.setText(projectDetailModel.getData().getDetail().getName());
                     tvPhone.setText(projectDetailModel.getData().getDetail().getCategory().getName());
-                    tvPhone1.setText(projectDetailModel.getData().getDetail().getClient().get(0).getClient().getPhone());
-                    tvEmail.setText(projectDetailModel.getData().getDetail().getClient().get(0).getClient().getEmail());
-//                    tvAddress.setText(projectDetailModel.getData().getDetail().get);
+                    if (TextUtils.isEmpty(projectDetailModel.getData().getDetail().getClient().get(0).getClient().getPhone())) {
+                        tvPhone1.setText("暂无");
+                    } else {
+
+                        tvPhone1.setText(projectDetailModel.getData().getDetail().getClient().get(0).getClient().getPhone());
+                    }
+                    if (TextUtils.isEmpty(projectDetailModel.getData().getDetail().getClient().get(0).getClient().getName())) {
+                        tvPerson.setText("暂无");
+                    } else {
+                        tvPerson.setText(projectDetailModel.getData().getDetail().getClient().get(0).getClient().getName());
+                    }
+                    if (TextUtils.isEmpty(projectDetailModel.getData().getDetail().getClient().get(0).getClient().getEmail())) {
+                        tvEmail.setText("暂无");
+                    } else {
+                        tvEmail.setText(projectDetailModel.getData().getDetail().getClient().get(0).getClient().getEmail());
+                    }
+                    tvAddress.setText(
+                            projectDetailModel.getData().getDetail().getClient().get(0).getClient().getRegion().getProvince() +
+                                    projectDetailModel.getData().getDetail().getClient().get(0).getClient().getRegion().getCity() +
+                                    projectDetailModel.getData().getDetail().getClient().get(0).getClient().getRegion().getRegion() +
+                                    projectDetailModel.getData().getDetail().getClient().get(0).getClient().getDetail()
+
+                    );
 //
                     titles.add("基本信息");
                     titles.add("相关客户");
@@ -136,6 +157,7 @@ public class ProjectDetailsActivity extends BaseActivity {
                 break;
         }
     }
+
     @Subscribe(threadMode = ThreadMode.MAIN, priority = 100, sticky = false) //在ui线程执行，优先级为100
     public void onEvent(String event) {
         if (event.equals("4")) {
