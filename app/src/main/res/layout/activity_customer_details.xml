@@ -115,7 +115,6 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@mipmap/wx"
                 android:drawablePadding="10dp"
-                android:text="18123458669"
                 android:textColor="#4D4D4D" />
 
             <TextView
@@ -125,7 +124,6 @@
                 android:layout_marginTop="10dp"
                 android:drawableLeft="@mipmap/qq"
                 android:drawablePadding="10dp"
-                android:text="5683439821"
                 android:textColor="#4D4D4D" />
 
             <TextView
@@ -135,7 +133,6 @@
                 android:layout_marginTop="10dp"
                 android:drawableLeft="@mipmap/email"
                 android:drawablePadding="10dp"
-                android:text="5683439821@qq.com"
                 android:textColor="#4D4D4D" />
 
             <TextView
@@ -145,7 +142,6 @@
                 android:layout_marginTop="10dp"
                 android:drawableLeft="@mipmap/location1"
                 android:drawablePadding="10dp"
-                android:text="合肥市滨湖新区万科蓝山25#1201"
                 android:textColor="#4D4D4D" />
         </LinearLayout>
 

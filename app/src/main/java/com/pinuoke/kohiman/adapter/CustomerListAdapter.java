@@ -1,6 +1,7 @@
 package com.pinuoke.kohiman.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,11 @@ public class CustomerListAdapter extends BaseAdapter<MyCustomerListModel.DataBea
     public void onBindViewHolder(@NonNull VH holder, int position) {
         holder.tvName.setText(mDatas.get(position).getName());
         holder.tvTime.setText(mDatas.get(position).getCreate_time());
-        holder.tvLocation.setText(mDatas.get(position).getAddress());
+        if(TextUtils.isEmpty(mDatas.get(position).getAddress())){
+            holder.tvLocation.setText("暂无");
+        }else {
+            holder.tvLocation.setText(mDatas.get(position).getAddress());
+        }
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < mDatas.get(position).getPhone().length(); i++) {
             char c = mDatas.get(position).getPhone().charAt(i);
