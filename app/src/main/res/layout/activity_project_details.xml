@@ -50,14 +50,14 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp">
 
             <TextView
-                android:text="121211212"
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="121211212"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -74,7 +74,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
             android:background="@drawable/bg_white_10"
             android:orientation="vertical"
             android:padding="10dp">
@@ -123,9 +125,10 @@
             android:id="@+id/xTablayout"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginTop="10dp"
             android:background="@color/white"
-            app:xTabDisplayNum="4"
             android:overScrollMode="never"
+            app:xTabDisplayNum="4"
             app:xTabIndicatorColor="#00A9A9"
             app:xTabIndicatorHeight="2dp"
             app:xTabIndicatorWidth="50dp"

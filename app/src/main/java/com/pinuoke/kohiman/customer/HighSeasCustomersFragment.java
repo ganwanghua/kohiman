@@ -58,6 +58,11 @@ public class HighSeasCustomersFragment extends BaseFragment implements OnRefresh
             public void onItemViewClick(View view, int position) {
                 batchGetClue(dataBeanList.get(position).getClue_id());
             }
+
+            @Override
+            public void onItemViewClick1(View view, int position) {
+
+            }
         });
         seasList(page);
     }

@@ -13,9 +13,11 @@ import com.alibaba.fastjson.JSON;
 import com.pedaily.yc.ycdialoglib.dialog.loading.ViewLoading;
 import com.pedaily.yc.ycdialoglib.toast.ToastUtils;
 import com.pinuoke.kohiman.R;
+import com.pinuoke.kohiman.adapter.FragmentAdapter;
 import com.pinuoke.kohiman.common.BaseActivity;
 import com.pinuoke.kohiman.model.BatchToSeasModel;
 import com.pinuoke.kohiman.model.ConfigModel;
+import com.pinuoke.kohiman.model.CustomerDetailsModel;
 import com.pinuoke.kohiman.model.MyCustomerListModel;
 import com.pinuoke.kohiman.model.StatusModel;
 import com.pinuoke.kohiman.nets.DataRepository;
@@ -85,8 +87,8 @@ public class EditCustomersActivity extends BaseActivity {
     EditText edAddress;
     @BindView(R.id.tv_sure)
     TextView tvSure;
-    private int pos;
-    private List<MyCustomerListModel.DataBeanX.ListBean.DataBean> dataBeanList = new ArrayList<>();
+//    private int pos;
+//    private List<MyCustomerListModel.DataBeanX.ListBean.DataBean> dataBeanList = new ArrayList<>();
     private DataRepository dataRepository;
     private String sex = "0";
     private int position, position1, position2;
@@ -106,11 +108,101 @@ public class EditCustomersActivity extends BaseActivity {
         setContentView(R.layout.activity_edit_customers);
         ButterKnife.bind(this);
 
-        dataBeanList = (List<MyCustomerListModel.DataBeanX.ListBean.DataBean>) getIntent().getSerializableExtra("data");
-        pos = getIntent().getIntExtra("pos", -1);
+//        dataBeanList = (List<MyCustomerListModel.DataBeanX.ListBean.DataBean>) getIntent().getSerializableExtra("data");
+//        pos = getIntent().getIntExtra("pos", -1);
 
         dataRepository = Injection.dataRepository(this);
         config();
+        customerDetails();
+    }
+
+    private void customerDetails() {
+        ViewLoading.show(this);
+        Map<String, String> map = new HashMap<>();
+        map.put("s", "/sales/client.index/detail");
+        map.put("clue_id", getIntent().getStringExtra("clue_id"));
+        map.put("token", FastData.getToken());
+        dataRepository.customerDetails(map, new RemotDataSource.getCallback() {
+            @Override
+            public void onFailure(String info) {
+                ViewLoading.dismiss(mContext);
+            }
+
+            @Override
+            public void onSuccess(Object data) {
+                ViewLoading.dismiss(mContext);
+                CustomerDetailsModel customerDetailsModel = (CustomerDetailsModel) data;
+                if (customerDetailsModel.getCode() == 1) {
+                    edName.setText(customerDetailsModel.getData().getDetail().getName());
+                    edUserName.setText(customerDetailsModel.getData().getDetail().getLink_name());
+                    edPhone.setText(customerDetailsModel.getData().getDetail().getPhone());
+                    if (customerDetailsModel.getData().getDetail().getGender().getValue() == 0) {
+                        iv1.setImageResource(R.mipmap.select);
+                        iv2.setImageResource(R.mipmap.unselect);
+                        iv3.setImageResource(R.mipmap.unselect);
+                    } else if (customerDetailsModel.getData().getDetail().getGender().getValue() == 1) {
+                        iv2.setImageResource(R.mipmap.select);
+                        iv1.setImageResource(R.mipmap.unselect);
+                        iv3.setImageResource(R.mipmap.unselect);
+                    } else if (customerDetailsModel.getData().getDetail().getGender().getValue() == 2) {
+                        iv3.setImageResource(R.mipmap.select);
+                        iv1.setImageResource(R.mipmap.unselect);
+                        iv2.setImageResource(R.mipmap.unselect);
+                    }
+                    if (customerDetailsModel.getData().getDetail().getAge() > 0) {
+                        edAge.setText(customerDetailsModel.getData().getDetail().getAge() + "");
+                    } else {
+                        edAge.setHint("请输入");
+                    }
+                    if (customerDetailsModel.getData().getDetail().getRole() == null) {
+                        tvRole.setHint("未知");
+                        roleId = "";
+                    } else {
+                        tvRole.setText(customerDetailsModel.getData().getDetail().getRole().getName());
+                        roleId = customerDetailsModel.getData().getDetail().getRole().getClue_role_id() + "";
+                    }
+                    if (customerDetailsModel.getData().getDetail().getSource() == null) {
+                        tvCustomerSource.setHint("未知");
+                        sourceId = "";
+                    } else {
+                        tvCustomerSource.setText(customerDetailsModel.getData().getDetail().getSource().getName());
+                        sourceId = customerDetailsModel.getData().getDetail().getSource().getClue_source_id() + "";
+                    }
+                    if (customerDetailsModel.getData().getDetail().getStatus() == null) {
+                        tvStatus.setHint("未知");
+                        statusId = "";
+                    } else {
+                        tvStatus.setText(customerDetailsModel.getData().getDetail().getStatus().getName());
+                        statusId = customerDetailsModel.getData().getDetail().getStatus().getClue_status_id() + "";
+                    }
+                    if (customerDetailsModel.getData().getDetail().getEmail() == null) {
+                        edEmail.setHint("请输入邮箱");
+                    } else {
+                        edEmail.setText(customerDetailsModel.getData().getDetail().getEmail());
+                    }
+                    if (customerDetailsModel.getData().getDetail().getWechat() == null) {
+                        edWx.setHint("请输入微信");
+                    } else {
+                        edWx.setText(customerDetailsModel.getData().getDetail().getWechat());
+                    }
+                    if (customerDetailsModel.getData().getDetail().getQq() == null) {
+                        edQq.setHint("请输入QQ");
+                    } else {
+                        edQq.setText(customerDetailsModel.getData().getDetail().getQq());
+                    }
+                    if (customerDetailsModel.getData().getDetail().getRegion() == null) {
+                        tvArea.setHint("请选择省市区");
+                    } else {
+                        tvArea.setText(customerDetailsModel.getData().getDetail().getRegion().getProvince() + customerDetailsModel.getData().getDetail().getRegion().getCity() + customerDetailsModel.getData().getDetail().getRegion().getRegion());
+                    }
+                    if (customerDetailsModel.getData().getDetail().getDetail() == null) {
+                        edAddress.setHint("请输入详细地址");
+                    } else {
+                        edAddress.setText(customerDetailsModel.getData().getDetail().getDetail());
+                    }
+                }
+            }
+        });
     }
 
     private void config() {
@@ -138,74 +230,6 @@ public class EditCustomersActivity extends BaseActivity {
                     for (int i = 0; i < configModel.getData().getStatusList().size(); i++) {
                         statusList.add(configModel.getData().getStatusList().get(i).getName());
                     }
-
-                    edName.setText(dataBeanList.get(pos).getName());
-                    edUserName.setText(dataBeanList.get(pos).getLink_name());
-                    edPhone.setText(dataBeanList.get(pos).getPhone());
-                    if (dataBeanList.get(pos).getGender().getValue() == 0) {
-                        iv1.setImageResource(R.mipmap.select);
-                        iv2.setImageResource(R.mipmap.unselect);
-                        iv3.setImageResource(R.mipmap.unselect);
-                    } else if (dataBeanList.get(pos).getGender().getValue() == 1) {
-                        iv2.setImageResource(R.mipmap.select);
-                        iv1.setImageResource(R.mipmap.unselect);
-                        iv3.setImageResource(R.mipmap.unselect);
-                    } else if (dataBeanList.get(pos).getGender().getValue() == 2) {
-                        iv3.setImageResource(R.mipmap.select);
-                        iv1.setImageResource(R.mipmap.unselect);
-                        iv2.setImageResource(R.mipmap.unselect);
-                    }
-                    if (dataBeanList.get(pos).getAge() > 0) {
-                        edAge.setText(dataBeanList.get(pos).getAge() + "");
-                    } else {
-                        edAge.setHint("请输入");
-                    }
-                    if (dataBeanList.get(pos).getRole() == null) {
-                        tvRole.setHint("未知");
-                        roleId = "";
-                    } else {
-                        tvRole.setText(dataBeanList.get(pos).getRole().getName());
-                        roleId = configModel.getData().getRoleList().get(position).getClue_role_id() + "";
-                    }
-                    if (dataBeanList.get(pos).getSource() == null) {
-                        tvCustomerSource.setHint("未知");
-                        sourceId = "";
-                    } else {
-                        tvCustomerSource.setText(dataBeanList.get(pos).getSource().getName());
-                        sourceId = configModel.getData().getSourceList().get(position).getClue_source_id() + "";
-                    }
-                    if (dataBeanList.get(pos).getStatus() == null) {
-                        tvStatus.setHint("未知");
-                        statusId = "";
-                    } else {
-                        tvStatus.setText(dataBeanList.get(pos).getStatus().getName());
-                        statusId = configModel.getData().getStatusList().get(position).getClue_status_id() + "";
-                    }
-                    if (dataBeanList.get(pos).getEmail() == null) {
-                        edEmail.setHint("请输入邮箱");
-                    } else {
-                        edEmail.setText(dataBeanList.get(pos).getEmail());
-                    }
-                    if (dataBeanList.get(pos).getWechat() == null) {
-                        edWx.setHint("请输入微信");
-                    } else {
-                        edWx.setText(dataBeanList.get(pos).getWechat());
-                    }
-                    if (dataBeanList.get(pos).getQq() == null) {
-                        edQq.setHint("请输入QQ");
-                    } else {
-                        edQq.setText(dataBeanList.get(pos).getQq());
-                    }
-                    if (dataBeanList.get(pos).getRegion() == null) {
-                        tvArea.setHint("请选择省市区");
-                    } else {
-                        tvArea.setText(dataBeanList.get(pos).getRegion().getProvince() + dataBeanList.get(pos).getRegion().getCity() + dataBeanList.get(pos).getRegion().getRegion());
-                    }
-                    if (dataBeanList.get(pos).getDetail() == null) {
-                        edAddress.setHint("请输入详细地址");
-                    } else {
-                        edAddress.setText(dataBeanList.get(pos).getDetail());
-                    }
                 }
             }
         });
@@ -215,8 +239,9 @@ public class EditCustomersActivity extends BaseActivity {
     private void editCustomer(String name, String user, String phone, String sex) {
         ViewLoading.show(mContext);
         Map<String, String> map = new HashMap<>();
-        map.put("s", "/sales/client.index/add");
+        map.put("s", "/sales/client.index/edit");
         map.put("token", FastData.getToken());
+        map.put("clue_id", getIntent().getStringExtra("clue_id"));
         map.put("name", name);
         map.put("link_name", user);
         map.put("phone", phone);

@@ -67,12 +67,28 @@ public class CustomerListAdapter extends BaseAdapter<MyCustomerListModel.DataBea
         if (i == 0) {
             holder.tvEdit.setText("编辑");
             holder.tvFollowUp.setVisibility(View.VISIBLE);
+
+            holder.tvEdit.setOnClickListener(v -> {
+                if (mOnItemClickListener != null) {
+                    mOnItemClickListener.onItemViewClick(v, position);
+                }
+            });
         } else if (i == 1) {
             holder.tvEdit.setText("创建项目");
             holder.tvFollowUp.setVisibility(View.VISIBLE);
+            holder.tvEdit.setOnClickListener(v -> {
+                if (mOnItemClickListener != null) {
+                    mOnItemClickListener.onItemViewClick1(v, position);
+                }
+            });
         } else if (i == 2) {
             holder.tvEdit.setText("编辑");
             holder.tvFollowUp.setVisibility(View.GONE);
+            holder.tvEdit.setOnClickListener(v -> {
+                if (mOnItemClickListener != null) {
+                    mOnItemClickListener.onItemViewClick(v, position);
+                }
+            });
         }
 
         holder.llDelete.setOnClickListener(v -> {
@@ -88,12 +104,6 @@ public class CustomerListAdapter extends BaseAdapter<MyCustomerListModel.DataBea
         });
 
         holder.tvFollowUp.setOnClickListener(v -> {
-            if (mOnItemClickListener != null) {
-                mOnItemClickListener.onItemViewClick(v, position);
-            }
-        });
-
-        holder.tvEdit.setOnClickListener(v -> {
             if (mOnItemClickListener != null) {
                 mOnItemClickListener.onItemViewClick(v, position);
             }

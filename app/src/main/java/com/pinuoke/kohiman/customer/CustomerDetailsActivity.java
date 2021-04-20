@@ -22,6 +22,9 @@ import com.pinuoke.kohiman.nets.Injection;
 import com.pinuoke.kohiman.nets.RemotDataSource;
 import com.pinuoke.kohiman.utils.FastData;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,8 +66,9 @@ public class CustomerDetailsActivity extends BaseActivity {
     @BindView(R.id.tv_tag1)
     TextView tvTag1;
     private DataRepository dataRepository;
-    private int pos;
-    private List<MyCustomerListModel.DataBeanX.ListBean.DataBean> dataBeanList = new ArrayList<>();
+    private CustomerDetailsModel customerDetailsModel;
+    //    private int pos;
+//    private List<MyCustomerListModel.DataBeanX.ListBean.DataBean> dataBeanList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +77,8 @@ public class CustomerDetailsActivity extends BaseActivity {
         setContentView(R.layout.activity_customer_details);
         ButterKnife.bind(this);
         dataRepository = Injection.dataRepository(this);
-        dataBeanList = (List<MyCustomerListModel.DataBeanX.ListBean.DataBean>) getIntent().getSerializableExtra("data");
-        pos = getIntent().getIntExtra("pos", -1);
+//        dataBeanList = (List<MyCustomerListModel.DataBeanX.ListBean.DataBean>) getIntent().getSerializableExtra("data");
+//        pos = getIntent().getIntExtra("pos", -1);
         customerDetails();
     }
 
@@ -93,7 +97,7 @@ public class CustomerDetailsActivity extends BaseActivity {
             @Override
             public void onSuccess(Object data) {
                 ViewLoading.dismiss(mContext);
-                CustomerDetailsModel customerDetailsModel = (CustomerDetailsModel) data;
+                customerDetailsModel = (CustomerDetailsModel) data;
                 if (customerDetailsModel.getCode() == 1) {
                     tvName.setText(customerDetailsModel.getData().getDetail().getName());
                     tvPhone.setText(customerDetailsModel.getData().getDetail().getPhone());
@@ -142,10 +146,18 @@ public class CustomerDetailsActivity extends BaseActivity {
                 break;
             case R.id.iv_edit:
                 Intent intent2 = new Intent(this, EditCustomersActivity.class);
-                intent2.putExtra("data", (Serializable) dataBeanList);
-                intent2.putExtra("pos", pos);
+                intent2.putExtra("clue_id", customerDetailsModel.getData().getDetail().getClue_id() + "");
                 startActivity(intent2);
                 break;
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN, priority = 100, sticky = false) //在ui线程执行，优先级为100
+    public void onEvent(String event) {
+        if (event.equals("2")) {
+            titles.clear();
+            fragments.clear();
+            customerDetails();
         }
     }
 }

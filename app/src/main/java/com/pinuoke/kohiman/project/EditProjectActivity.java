@@ -205,6 +205,7 @@ detail	否	string	项目详情
             role_id = dataBean.getClient().get(0).getRole().getClue_role_id() + "";
         }
         phone = dataBean.getClient().get(0).getPhone();
+        edPhone.setText(phone);
         tvLinkClient.setText(dataBean.getUser().get(0).getUser().getUser_name());
         user_id = dataBean.getUser().get(0).getUser().getUser_id() + "";
         if (dataBean.getUser().get(0).getLook_follow() == 1) {

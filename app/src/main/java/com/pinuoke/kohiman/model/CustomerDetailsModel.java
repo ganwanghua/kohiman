@@ -164,7 +164,7 @@ public class CustomerDetailsModel implements Serializable {
             private String create_time;
             private String update_time;
             private String address;
-            private Object role;
+            private RoleBean role;
             private SourceBean source;
             private StatusBean status;
             private UserBean user;
@@ -175,6 +175,92 @@ public class CustomerDetailsModel implements Serializable {
             private RegionBean region;
             private String noFollowDays;
             private List<?> tag_log;
+
+            public static class RoleBean {
+                /**
+                 * clue_role_id : 10013
+                 * name : 使用人
+                 * enterprise_id : 10002
+                 * sort : 100
+                 * status : 1
+                 * is_delete : 0
+                 * create_time : 2020-02-08 18:40:17
+                 * update_time : 2020-02-08 18:40:17
+                 */
+
+                private int clue_role_id;
+                private String name;
+                private int enterprise_id;
+                private int sort;
+                private int status;
+                private int is_delete;
+                private String create_time;
+                private String update_time;
+
+                public int getClue_role_id() {
+                    return clue_role_id;
+                }
+
+                public void setClue_role_id(int clue_role_id) {
+                    this.clue_role_id = clue_role_id;
+                }
+
+                public String getName() {
+                    return name;
+                }
+
+                public void setName(String name) {
+                    this.name = name;
+                }
+
+                public int getEnterprise_id() {
+                    return enterprise_id;
+                }
+
+                public void setEnterprise_id(int enterprise_id) {
+                    this.enterprise_id = enterprise_id;
+                }
+
+                public int getSort() {
+                    return sort;
+                }
+
+                public void setSort(int sort) {
+                    this.sort = sort;
+                }
+
+                public int getStatus() {
+                    return status;
+                }
+
+                public void setStatus(int status) {
+                    this.status = status;
+                }
+
+                public int getIs_delete() {
+                    return is_delete;
+                }
+
+                public void setIs_delete(int is_delete) {
+                    this.is_delete = is_delete;
+                }
+
+                public String getCreate_time() {
+                    return create_time;
+                }
+
+                public void setCreate_time(String create_time) {
+                    this.create_time = create_time;
+                }
+
+                public String getUpdate_time() {
+                    return update_time;
+                }
+
+                public void setUpdate_time(String update_time) {
+                    this.update_time = update_time;
+                }
+            }
 
             public SourceBean getSource() {
                 return source;
@@ -488,11 +574,11 @@ public class CustomerDetailsModel implements Serializable {
                 this.address = address;
             }
 
-            public Object getRole() {
+            public RoleBean getRole() {
                 return role;
             }
 
-            public void setRole(Object role) {
+            public void setRole(RoleBean role) {
                 this.role = role;
             }
 

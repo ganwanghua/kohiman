@@ -66,7 +66,7 @@ public class MainActivity extends BaseActivity {
                 .selectTextColor(getResources().getColor(R.color.green))//选中的文字颜色
                 .normalTextColor(getResources().getColor(R.color.light_black))//未选中的文字颜色
                 .build();
-        easyBars.getViewPager().setOffscreenPageLimit(1);
+        easyBars.getViewPager().setOffscreenPageLimit(3);
         easyBars.setOnTabClickListener(new EasyNavigationBar.OnTabClickListener() {
             @Override
             public boolean onTabSelectEvent(View view, int position) {

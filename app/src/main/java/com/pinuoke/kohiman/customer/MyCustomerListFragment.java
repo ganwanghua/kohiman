@@ -45,7 +45,7 @@ public class MyCustomerListFragment extends BaseFragment {
         }
         FragmentAdapter adatper = new FragmentAdapter(getFragmentManager(), fragments, titles);
         viewPager.setAdapter(adatper);
-//        viewPager.setOffscreenPageLimit(fragments.size());
+        viewPager.setOffscreenPageLimit(fragments.size());
         //将TabLayout和ViewPager关联起来。
         xTablayout.setupWithViewPager(viewPager);
     }

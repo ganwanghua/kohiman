@@ -23,6 +23,7 @@ import com.pinuoke.kohiman.model.MyCustomerListModel;
 import com.pinuoke.kohiman.nets.DataRepository;
 import com.pinuoke.kohiman.nets.Injection;
 import com.pinuoke.kohiman.nets.RemotDataSource;
+import com.pinuoke.kohiman.project.CreateProjectActivity;
 import com.pinuoke.kohiman.utils.FastData;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -102,9 +103,17 @@ public class CustomerListFragment extends BaseFragment implements OnRefreshLoadM
                         break;
                     case R.id.tv_edit:
                         Intent intent2 = new Intent(getContext(), EditCustomersActivity.class);
-                        intent2.putExtra("data", (Serializable) dataBeanList);
-                        intent2.putExtra("pos", position);
+                        intent2.putExtra("clue_id", dataBeanList.get(position).getClue_id()+"");
                         startActivity(intent2);
+                        break;
+                }
+            }
+
+            @Override
+            public void onItemViewClick1(View view, int position) {
+                switch (view.getId()) {
+                    case R.id.tv_edit:
+                        startActivity(new Intent(mContext, CreateProjectActivity.class));
                         break;
                 }
             }
