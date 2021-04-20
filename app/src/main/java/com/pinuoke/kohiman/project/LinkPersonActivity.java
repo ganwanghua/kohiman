@@ -115,6 +115,7 @@ public class LinkPersonActivity extends BaseActivity implements OnRefreshLoadMor
         map.put("s", "/sales/project.index/clientList");
         map.put("keyword", keyword);
         map.put("page",page+"");
+        map.put("token",FastData.getToken());
         dataRepository.projectClientList(map, new RemotDataSource.getCallback() {
             @Override
             public void onFailure(String info) {
