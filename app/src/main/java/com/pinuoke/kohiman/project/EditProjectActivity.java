@@ -27,6 +27,7 @@ import com.pinuoke.kohiman.common.BaseActivity;
 import com.pinuoke.kohiman.model.MyProjectListModel;
 import com.pinuoke.kohiman.model.ProjectClientListModel;
 import com.pinuoke.kohiman.model.ProjectConfigModel;
+import com.pinuoke.kohiman.model.ProjectDetailModel;
 import com.pinuoke.kohiman.model.StatusModel;
 import com.pinuoke.kohiman.nets.DataRepository;
 import com.pinuoke.kohiman.nets.Injection;
@@ -184,47 +185,69 @@ detail	否	string	项目详情
 
     private void initData() {
         dataRepository = Injection.dataRepository(mContext);
+        projectDetail();
         projectConfig();
-        MyProjectListModel.DataBeanX.ListBean.DataBean dataBean = (MyProjectListModel.DataBeanX.ListBean.DataBean) getIntent().getSerializableExtra("DataBean");
-        if (dataBean.getIs_emphasis() == 0) {
-            iv1.setImageResource(R.mipmap.select);
-            iv2.setImageResource(R.mipmap.unselect);
-        } else {
-            iv2.setImageResource(R.mipmap.select);
-            iv1.setImageResource(R.mipmap.unselect);
-        }
-        edName.setText(dataBean.getName());
-        tvType.setText(dataBean.getCategory().getName());
-        category_id = dataBean.getCategory().getCategory_id() + "";
-        tvStage.setText(dataBean.getStatus().getName());
-        status_id = dataBean.getStatus().getProject_status_id() + "";
-        tvLinkPerson.setText(dataBean.getClient().get(0).getClient().getName());
-        client_id = dataBean.getClient().get(0).getClient().getClue_id() + "";
-        if (dataBean.getClient().get(0).getRole() != null) {
-            tvRole.setText(dataBean.getClient().get(0).getRole().getName());
-            role_id = dataBean.getClient().get(0).getRole().getClue_role_id() + "";
-        }
-        phone = dataBean.getClient().get(0).getPhone();
-        edPhone.setText(phone);
-        tvLinkClient.setText(dataBean.getUser().get(0).getUser().getUser_name());
-        user_id = dataBean.getUser().get(0).getUser().getUser_id() + "";
-        if (dataBean.getUser().get(0).getLook_follow() == 1) {
-            cbFollowUp.setChecked(true);
-        } else {
-            cbFollowUp.setChecked(false);
-        }
-        if (dataBean.getUser().get(0).getLook_phone() == 1) {
-            cbContactInfo.setChecked(true);
-        } else {
-            cbContactInfo.setChecked(false);
-        }
-        tvStartTime.setText(dataBean.getStart_time());
-        start_time = dataBean.getStart_time();
-        if (!TextUtils.isEmpty(dataBean.getEnd_time())) {
-            tvEndTime.setText(dataBean.getEnd_time());
-            end_time = dataBean.getEnd_time();
-        }
-        edContent.setText(dataBean.getDetail());
+
+    }
+
+    private void projectDetail() {
+        ViewLoading.show(this);
+        Map<String, String> map = new HashMap<>();
+        map.put("s", "/sales/project.index/detail");
+        map.put("project_id", getIntent().getStringExtra("project_id"));
+        map.put("token", FastData.getToken());
+        dataRepository.projectDetail(map, new RemotDataSource.getCallback() {
+            @Override
+            public void onFailure(String info) {
+                ViewLoading.dismiss(mContext);
+            }
+
+            @Override
+            public void onSuccess(Object data) {
+                ProjectDetailModel projectDetailModel = (ProjectDetailModel) data;
+                if (projectDetailModel.getCode() == 1) {
+                    ProjectDetailModel.DataBean.DetailBean dataBean = projectDetailModel.getData().getDetail();
+                    if (dataBean.getIs_emphasis() == 0) {
+                    iv1.setImageResource(R.mipmap.select);
+                    iv2.setImageResource(R.mipmap.unselect);
+                } else {
+                    iv2.setImageResource(R.mipmap.select);
+                    iv1.setImageResource(R.mipmap.unselect);
+                }
+                edName.setText(dataBean.getName());
+                tvType.setText(dataBean.getCategory().getName());
+                category_id = dataBean.getCategory().getCategory_id() + "";
+                tvStage.setText(dataBean.getStatus().getName());
+                status_id = dataBean.getStatus().getProject_status_id() + "";
+                tvLinkPerson.setText(dataBean.getClient().get(0).getClient().getName());
+                client_id = dataBean.getClient().get(0).getClient().getClue_id() + "";
+                if (dataBean.getClient().get(0).getRole() != null) {
+                    tvRole.setText(dataBean.getClient().get(0).getRole().getName());
+                    role_id = dataBean.getClient().get(0).getRole().getClue_role_id() + "";
+                }
+                phone = dataBean.getClient().get(0).getPhone();
+                edPhone.setText(phone);
+                tvLinkClient.setText(dataBean.getUser().get(0).getUser().getUser_name());
+                user_id = dataBean.getUser().get(0).getUser().getUser_id() + "";
+                if (dataBean.getUser().get(0).getLook_follow() == 1) {
+                    cbFollowUp.setChecked(true);
+                } else {
+                    cbFollowUp.setChecked(false);
+                }
+                if (dataBean.getUser().get(0).getLook_phone() == 1) {
+                    cbContactInfo.setChecked(true);
+                } else {
+                    cbContactInfo.setChecked(false);
+                }
+                tvStartTime.setText(dataBean.getStart_time());
+                start_time = dataBean.getStart_time();
+                if (!TextUtils.isEmpty(dataBean.getEnd_time())) {
+                    tvEndTime.setText(dataBean.getEnd_time());
+                    end_time = dataBean.getEnd_time();
+                }
+                edContent.setText(dataBean.getDetail());
+            }
+        }});
     }
 
     private void projectConfig() {

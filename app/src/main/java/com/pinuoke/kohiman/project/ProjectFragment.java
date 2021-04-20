@@ -90,7 +90,6 @@ public class ProjectFragment extends BaseFragment implements OnRefreshLoadMoreLi
                     default:
                         Intent intent2 = new Intent(mContext, ProjectDetailsActivity.class);
                         intent2.putExtra("project_id", o.getProject_id() + "");
-                        intent2.putExtra("DataBean", o);
                         startActivity(intent2);
                         break;
 

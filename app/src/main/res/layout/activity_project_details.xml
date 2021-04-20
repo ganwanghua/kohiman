@@ -57,7 +57,6 @@
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="121211212"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -87,7 +86,6 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@mipmap/ic_person"
                 android:drawablePadding="10dp"
-                android:text="18123458669"
                 android:textColor="#4D4D4D" />
 
             <TextView
@@ -97,7 +95,6 @@
                 android:layout_marginTop="10dp"
                 android:drawableLeft="@mipmap/phone"
                 android:drawablePadding="10dp"
-                android:text="5683439821"
                 android:textColor="#4D4D4D" />
 
             <TextView
@@ -107,7 +104,6 @@
                 android:layout_marginTop="10dp"
                 android:drawableLeft="@mipmap/email"
                 android:drawablePadding="10dp"
-                android:text="5683439821@qq.com"
                 android:textColor="#4D4D4D" />
 
             <TextView
@@ -117,7 +113,6 @@
                 android:layout_marginTop="10dp"
                 android:drawableLeft="@mipmap/location1"
                 android:drawablePadding="10dp"
-                android:text="合肥市滨湖新区万科蓝山25#1201"
                 android:textColor="#4D4D4D" />
         </LinearLayout>
 

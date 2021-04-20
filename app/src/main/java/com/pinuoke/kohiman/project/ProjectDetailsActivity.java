@@ -26,6 +26,9 @@ import com.pinuoke.kohiman.nets.Injection;
 import com.pinuoke.kohiman.nets.RemotDataSource;
 import com.pinuoke.kohiman.utils.FastData;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -66,7 +69,6 @@ public class ProjectDetailsActivity extends BaseActivity {
     private int pos;
     List<Fragment> fragments = new ArrayList<>();
     List<String> titles = new ArrayList<>();
-    private MyProjectListModel.DataBeanX.ListBean.DataBean dataBean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +76,6 @@ public class ProjectDetailsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_details);
         ButterKnife.bind(this);
-        dataBean = (MyProjectListModel.DataBeanX.ListBean.DataBean) getIntent().getSerializableExtra("DataBean");
 
         dataRepository = Injection.dataRepository(this);
         pos = getIntent().getIntExtra("pos", -1);
@@ -131,9 +132,16 @@ public class ProjectDetailsActivity extends BaseActivity {
             case R.id.iv_edit:
                 Intent intent2 = new Intent(this, EditProjectActivity.class);
                 intent2.putExtra("project_id", getIntent().getStringExtra("project_id"));
-                intent2.putExtra("DataBean", dataBean);
                 startActivity(intent2);
                 break;
+        }
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN, priority = 100, sticky = false) //在ui线程执行，优先级为100
+    public void onEvent(String event) {
+        if (event.equals("4")) {
+            titles.clear();
+            fragments.clear();
+            projectDetail();
         }
     }
 }
