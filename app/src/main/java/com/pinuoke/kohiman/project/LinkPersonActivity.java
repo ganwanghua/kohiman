@@ -93,6 +93,8 @@ public class LinkPersonActivity extends BaseActivity implements OnRefreshLoadMor
                                    getWindow().getDecorView().getWindowToken(),
                                     InputMethodManager.HIDE_NOT_ALWAYS);
                     keyword = edSearch.getText().toString();
+                    page=1;
+                    dataBeanList.clear();
                     projectClientList();
                     return true;
                 }
