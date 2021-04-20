@@ -129,7 +129,7 @@ public class ProjectDetailsActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.iv_edit:
-                Intent intent2 = new Intent(this, EditCustomersActivity.class);
+                Intent intent2 = new Intent(this, EditProjectActivity.class);
                 intent2.putExtra("project_id", getIntent().getStringExtra("project_id"));
                 intent2.putExtra("DataBean", dataBean);
                 startActivity(intent2);
