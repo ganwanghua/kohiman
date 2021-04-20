@@ -2,6 +2,7 @@ package com.pinuoke.kohiman.customer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -67,8 +68,6 @@ public class CustomerDetailsActivity extends BaseActivity {
     TextView tvTag1;
     private DataRepository dataRepository;
     private CustomerDetailsModel customerDetailsModel;
-    //    private int pos;
-//    private List<MyCustomerListModel.DataBeanX.ListBean.DataBean> dataBeanList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,8 +76,6 @@ public class CustomerDetailsActivity extends BaseActivity {
         setContentView(R.layout.activity_customer_details);
         ButterKnife.bind(this);
         dataRepository = Injection.dataRepository(this);
-//        dataBeanList = (List<MyCustomerListModel.DataBeanX.ListBean.DataBean>) getIntent().getSerializableExtra("data");
-//        pos = getIntent().getIntExtra("pos", -1);
         customerDetails();
     }
 
@@ -101,10 +98,26 @@ public class CustomerDetailsActivity extends BaseActivity {
                 if (customerDetailsModel.getCode() == 1) {
                     tvName.setText(customerDetailsModel.getData().getDetail().getName());
                     tvPhone.setText(customerDetailsModel.getData().getDetail().getPhone());
-                    tvWx.setText(customerDetailsModel.getData().getDetail().getWechat());
-                    tvQq.setText(customerDetailsModel.getData().getDetail().getQq());
-                    tvEmail.setText(customerDetailsModel.getData().getDetail().getEmail());
-                    tvAddress.setText(customerDetailsModel.getData().getDetail().getAddress());
+                    if(TextUtils.isEmpty(customerDetailsModel.getData().getDetail().getWechat())){
+                        tvWx.setText("暂无");
+                    }else {
+                        tvWx.setText(customerDetailsModel.getData().getDetail().getWechat());
+                    }
+                    if(TextUtils.isEmpty(customerDetailsModel.getData().getDetail().getQq())){
+                        tvQq.setText("暂无");
+                    }else {
+                        tvQq.setText(customerDetailsModel.getData().getDetail().getQq());
+                    }
+                    if(TextUtils.isEmpty(customerDetailsModel.getData().getDetail().getEmail())){
+                        tvEmail.setText("暂无");
+                    }else {
+                        tvEmail.setText(customerDetailsModel.getData().getDetail().getEmail());
+                    }
+                    if(TextUtils.isEmpty(customerDetailsModel.getData().getDetail().getAddress())){
+                        tvAddress.setText("暂无");
+                    }else {
+                        tvAddress.setText(customerDetailsModel.getData().getDetail().getAddress());
+                    }
 
                     if (customerDetailsModel.getData().getDetail().getSource() != null) {
                         tvTag.setVisibility(View.VISIBLE);

@@ -35,6 +35,7 @@
                 android:background="@mipmap/journal" />
 
             <ImageView
+                android:id="@+id/iv_team"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -50,12 +51,14 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/iv_organization"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:background="@mipmap/organization_structure" />
 
             <ImageView
+                android:id="@+id/iv_submit"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
