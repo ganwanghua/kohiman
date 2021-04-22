@@ -18,7 +18,6 @@ import butterknife.ButterKnife;
 
 public class UserInfoAdapter extends BaseAdapter<ProjectDetailModel.DataBean.DetailBean.UserBeanX, UserInfoAdapter.VH> {
 
-
     public UserInfoAdapter(Context mContext) {
         super(mContext);
     }
@@ -33,6 +32,7 @@ public class UserInfoAdapter extends BaseAdapter<ProjectDetailModel.DataBean.Det
     public void onBindViewHolder(@NonNull VH holder, int position) {
         holder.tvName.setText(mDatas.get(position).getUser().getUser_name());
         holder.tvPhone.setText(mDatas.get(position).getUser().getMobile());
+        holder.tvSort.setText("员工" + position);
 
     }
 
@@ -47,6 +47,8 @@ public class UserInfoAdapter extends BaseAdapter<ProjectDetailModel.DataBean.Det
         TextView tvName;
         @BindView(R.id.tv_phone)
         TextView tvPhone;
+        @BindView(R.id.tv_sort)
+        TextView tvSort;
 
 
         public VH(@NonNull View itemView) {

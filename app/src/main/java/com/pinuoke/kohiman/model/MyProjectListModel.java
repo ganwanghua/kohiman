@@ -361,7 +361,7 @@ public class MyProjectListModel {
                      */
 
                     private String text;
-                    private int value;
+                    private long value;
 
                     public String getText() {
                         return text;
@@ -371,11 +371,11 @@ public class MyProjectListModel {
                         this.text = text;
                     }
 
-                    public int getValue() {
+                    public long getValue() {
                         return value;
                     }
 
-                    public void setValue(int value) {
+                    public void setValue(long value) {
                         this.value = value;
                     }
                 }
@@ -387,7 +387,7 @@ public class MyProjectListModel {
                      */
 
                     private String text;
-                    private int value;
+                    private long value;
 
                     public String getText() {
                         return text;
@@ -397,11 +397,11 @@ public class MyProjectListModel {
                         this.text = text;
                     }
 
-                    public int getValue() {
+                    public long getValue() {
                         return value;
                     }
 
-                    public void setValue(int value) {
+                    public void setValue(long value) {
                         this.value = value;
                     }
                 }

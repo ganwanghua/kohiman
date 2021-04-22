@@ -35,7 +35,7 @@ public class ClientInformationFragment extends BaseFragment {
         tvName.setText(projectDetailModel.getData().getDetail().getClient().get(0).getClient().getName());
         tvRole.setText(projectDetailModel.getData().getDetail().getClient().get(0).getClient().getRole_id()+"");
         tvLinkPerson.setText(projectDetailModel.getData().getDetail().getClient().get(0).getClient().getLink_name());
-        tvLinkPerson.setText(projectDetailModel.getData().getDetail().getClient().get(0).getPhone());
+        tvPhone.setText(projectDetailModel.getData().getDetail().getClient().get(0).getPhone());
 
     }
 }

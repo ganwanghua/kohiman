@@ -125,7 +125,9 @@ public class ProjectDetailsActivity extends BaseActivity {
                                     projectDetailModel.getData().getDetail().getClient().get(0).getClient().getDetail()
 
                     );
-//
+                    if (TextUtils.isEmpty(tvAddress.getText().toString())) {
+                        tvAddress.setText("暂无");
+                    }
                     titles.add("基本信息");
                     titles.add("相关客户");
                     titles.add("相关员工");

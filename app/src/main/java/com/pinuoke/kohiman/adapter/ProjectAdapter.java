@@ -39,7 +39,7 @@ public class ProjectAdapter extends BaseAdapter<MyProjectListModel.DataBeanX.Lis
         holder.tvTime.setText(mDatas.get(position).getCreate_time());
         holder.tvLocation.setText(mDatas.get(position).getClient().get(0).getClient().getName() + " | " +
                 mDatas.get(position).getClient().get(0).getClient().getLink_name());
-        holder.tvPhone.setText(mDatas.get(position).getCategory().getName());
+        holder.tvPhone.setText(mDatas.get(position).getCategory().getName()+" "+mDatas.get(position).getStatus().getName());
         if (mDatas.get(position).getFollow_time().getValue() > 0) {
             holder.tvTag.setText("已跟进");
             holder.tvTag.setTextColor(mContext.getResources().getColor(R.color.green));
