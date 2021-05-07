@@ -43,7 +43,7 @@ public class MyCustomerListFragment extends BaseFragment {
                 fragments.add(new CustomerListFragment(i, "", "10023"));
             }
         }
-        FragmentAdapter adatper = new FragmentAdapter(getFragmentManager(), fragments, titles);
+        FragmentAdapter adatper = new FragmentAdapter(getChildFragmentManager(), fragments, titles);
         viewPager.setAdapter(adatper);
         viewPager.setOffscreenPageLimit(fragments.size());
         //将TabLayout和ViewPager关联起来。

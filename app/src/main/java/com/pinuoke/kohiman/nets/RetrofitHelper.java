@@ -67,7 +67,7 @@ public class RetrofitHelper {
         okHttpClientBuilder.connectTimeout(20, TimeUnit.SECONDS);
 
         mRetrofit = new Retrofit.Builder()
-                .baseUrl("http://kxmtest.vtui365.com/")
+                .baseUrl("http://scrm.vshop365.cn/")
                 .client(client().build())
                 //.addConverterFactory(SimpleXmlConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())

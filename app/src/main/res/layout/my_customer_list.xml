@@ -16,9 +16,9 @@
         app:xTabIndicatorWidth="50dp"
         app:xTabMode="fixed"
         app:xTabSelectedTextColor="#222222"
-        app:xTabSelectedTextSize="15sp"
+        app:xTabSelectedTextSize="12sp"
         app:xTabTextColor="#808080"
-        app:xTabTextSize="15sp" />
+        app:xTabTextSize="12sp" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
