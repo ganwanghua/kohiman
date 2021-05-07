@@ -105,4 +105,12 @@ public interface RetrofitService {
     //项目详情
     @POST("index.php")
     Observable<ProjectDetailModel> projectDetail(@QueryMap Map<String, String> queryMap);
+
+    // 团队客户列表
+    @POST("index.php")
+    Observable<MyCustomerListModel> groupCustomerList(@QueryMap Map<String, String> queryMap);
+
+    // 团队项目列表
+    @POST("index.php")
+    Observable<MyProjectListModel> groupProjectList(@QueryMap Map<String, String> queryMap);
 }

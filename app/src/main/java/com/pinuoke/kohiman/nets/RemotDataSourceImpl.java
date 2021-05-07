@@ -85,6 +85,28 @@ public class RemotDataSourceImpl implements RemotDataSource {
     }
 
     @Override
+    public void groupCustomerList(Map<String, String> queryMap, final getCallback callback) {
+        Observable<MyCustomerListModel> observable = RetrofitHelper.getInstance(mContext).getServer().groupCustomerList(queryMap);
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<MyCustomerListModel>() {
+                    @Override
+                    public void onCompleted() { // 完成请求后
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) { // 异常处理
+                        callback.onFailure(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(MyCustomerListModel s) { // 请求成功
+                        callback.onSuccess(s);
+                    }
+                });
+    }
+
+    @Override
     public void seasList(Map<String, String> queryMap, final getCallback callback) {
         Observable<SeasListModel> observable = RetrofitHelper.getInstance(mContext).getServer().seasList(queryMap);
         observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
@@ -153,6 +175,28 @@ public class RemotDataSourceImpl implements RemotDataSource {
     @Override
     public void myProjectList(Map<String, String> queryMap, getCallback callback) {
         Observable<MyProjectListModel> observable = RetrofitHelper.getInstance(mContext).getServer().myProjectList(queryMap);
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<MyProjectListModel>() {
+                    @Override
+                    public void onCompleted() { // 完成请求后
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) { // 异常处理
+                        callback.onFailure(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(MyProjectListModel s) { // 请求成功
+                        callback.onSuccess(s);
+                    }
+                });
+    }
+
+    @Override
+    public void groupProjectList(Map<String, String> queryMap, getCallback callback) {
+        Observable<MyProjectListModel> observable = RetrofitHelper.getInstance(mContext).getServer().groupProjectList(queryMap);
         observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<MyProjectListModel>() {
                     @Override

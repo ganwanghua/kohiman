@@ -34,7 +34,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 
-public class PersonProjectListFragment extends BaseFragment implements OnRefreshLoadMoreListener {
+public class GroupProjectListFragment extends BaseFragment implements OnRefreshLoadMoreListener {
 
 
     @BindView(R.id.recyclerView)
@@ -45,16 +45,9 @@ public class PersonProjectListFragment extends BaseFragment implements OnRefresh
     private ProjectAdapter adapter;
     private List<MyProjectListModel.DataBeanX.ListBean.DataBean> dataBeanList = new ArrayList<>();
 
-    private String is_followed;
-    private String status_id;
-    private int i;
-
     private int page = 1;
 
-    public PersonProjectListFragment(int i, String is_followed, String status_id) {
-        this.status_id = status_id;
-        this.is_followed = is_followed;
-        this.i = i;
+    public GroupProjectListFragment(int i, String s, String s1) {
 
     }
 
@@ -102,21 +95,16 @@ public class PersonProjectListFragment extends BaseFragment implements OnRefresh
     @Override
     protected void initData() {
         dataRepository = Injection.dataRepository(mContext);
-        myProjectList();
+        groupProjectList();
     }
 
-    private void myProjectList() {
+    private void groupProjectList() {
         ViewLoading.show(getActivity());
         Map<String, String> map = new HashMap<>();
-        map.put("s", "/sales/project.index/my");
+        map.put("s", "/sales/project.index/all");
         map.put("page", page + "");
-        if (i == 0 || i == 1) {
-            map.put("is_followed", is_followed);
-        } else {
-            map.put("status_id", status_id);
-        }
         map.put("token", FastData.getToken());
-        dataRepository.myProjectList(map, new RemotDataSource.getCallback() {
+        dataRepository.groupProjectList(map, new RemotDataSource.getCallback() {
             @Override
             public void onFailure(String info) {
                 refresh.finishRefresh();
@@ -146,16 +134,16 @@ public class PersonProjectListFragment extends BaseFragment implements OnRefresh
     @Override
     public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
         page++;
-        myProjectList();
+        groupProjectList();
     }
 
     @Override
     public void onRefresh(@NonNull RefreshLayout refreshLayout) {
         page = 1;
         dataBeanList.clear();
-        myProjectList();
+        groupProjectList();
     }
-
+    
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -173,7 +161,7 @@ public class PersonProjectListFragment extends BaseFragment implements OnRefresh
         if (event.equals("4")) {
             page = 1;
             dataBeanList.clear();
-            myProjectList();
+            groupProjectList();
         }
     }
 }

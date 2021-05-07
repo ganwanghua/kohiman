@@ -126,4 +126,14 @@ public class DataRepository implements RemotDataSource {
     public void projectDetail(Map<String, String> queryMap, getCallback callback) {
         mRemoteDataSource.projectDetail(queryMap, callback);
     }
+
+    @Override
+    public void groupCustomerList(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.groupCustomerList(queryMap, callback);
+    }
+
+    @Override
+    public void groupProjectList(Map<String, String> queryMap, getCallback callback) {
+        mRemoteDataSource.groupProjectList(queryMap, callback);
+    }
 }

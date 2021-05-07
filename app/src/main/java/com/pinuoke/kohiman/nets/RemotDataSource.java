@@ -54,4 +54,8 @@ public interface RemotDataSource {
     void editProject(Map<String, String> queryMap, getCallback callback);
 
     void projectDetail(Map<String, String> queryMap, getCallback callback);
+
+    void groupCustomerList(Map<String, String> queryMap, getCallback callback);
+
+    void groupProjectList(Map<String, String> queryMap, getCallback callback);
 }

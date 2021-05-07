@@ -64,7 +64,7 @@ public class CustomerFragment extends BaseFragment {
             if (i == 0) {
                 fragments.add(new MyCustomerListFragment());
             } else if (i == 1) {
-                fragments.add(new MyCustomerListFragment());
+                fragments.add(new GroupCustomerListFragment());
             } else if (i == 2) {
                 fragments.add(new HighSeasCustomersFragment());            }
         }
